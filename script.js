@@ -447,6 +447,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (timerPaso3_N2) clearTimeout(timerPaso3_N2);
   }
 
+    function reiniciarBarra(modal) {
+    const relleno = modal.querySelector('.barra-progreso-fill');
+    if (!relleno) return;
+    relleno.style.animation = 'none';
+    void relleno.offsetWidth;
+    relleno.style.animation = '';
+  }
   
   function actualizarSubtitulos(lineas, tiempoActual) {
     let lineaActiva = null;
@@ -571,6 +578,7 @@ document.addEventListener('DOMContentLoaded', () => {
       timerPaso2 = setTimeout(() => {
         if (modalDetalleLibreta.classList.contains('visible')) {
           modalDetalleLibreta.classList.add('paso-2');
+          reiniciarBarra(modalDetalleLibreta);
         }
       }, 7000);
 
@@ -578,6 +586,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (modalDetalleLibreta.classList.contains('visible')) {
           modalDetalleLibreta.classList.remove('paso-2');
           modalDetalleLibreta.classList.add('paso-3', 'cambiado');
+          reiniciarBarra(modalDetalleLibreta);
         }
       }, 14000);
     });
@@ -730,6 +739,7 @@ document.addEventListener('DOMContentLoaded', () => {
       timerPaso2_N2 = setTimeout(() => {
         if (modalInfoDelito.classList.contains('visible')) {
           modalInfoDelito.classList.add('paso-2');
+          reiniciarBarra(modalInfoDelito);
         }
       }, 7000);
 
@@ -737,6 +747,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (modalInfoDelito.classList.contains('visible')) {
           modalInfoDelito.classList.remove('paso-2');
           modalInfoDelito.classList.add('paso-3', 'cambiado');
+          reiniciarBarra(modalInfoDelito);
         }
       }, 14000);
     });
@@ -787,6 +798,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (tarjetaOpcion5_N3 && modalRobo) {
     tarjetaOpcion5_N3.addEventListener('click', () => {
       pantalla = 'modal-robo';
+      modalRobo.classList.remove('activo');
+      void modalRobo.offsetWidth;
+      modalRobo.classList.add('activo');
       ocultar(nucleo3);
       mostrar(modalRobo);
     });
@@ -794,6 +808,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (btnCerrarRobo && modalRobo) {
     btnCerrarRobo.addEventListener('click', () => {
+      modalRobo.classList.remove('activo');
       ocultar(modalRobo);
       mostrar(nucleo3);
     });
