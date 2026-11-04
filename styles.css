@@ -2041,7 +2041,7 @@ body {
 
 .volver-wrap-exp {
   position: absolute;
-  right: 3.5cqw;
+  left: 3.5cqw;
   bottom: 3.5cqh;
   display: flex;
   flex-direction: column;
@@ -2055,7 +2055,7 @@ body {
 
 .btn-avanzar-exp-izq {
   position: absolute;
-  left: 3.5cqw;
+  right: 3.5cqw;
   bottom: 3.5cqh;
   background: none;
   border: none;
