@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voces que Engañan</title>
+  <meta name="description" content="Voces que Engañan: descubrí qué puede pasar con una simple voz.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Playfair+Display:wght@500;600&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+
+  <audio id="audio-timbre" src="Sonido-timbre-Telefono-SnapYT.App.mp3" preload="auto" autoplay loop></audio>
+  <div id="intro" class="intro" title="Hacé clic para avanzar">
+    <img id="intro-img" src="fondo inicio1.jfif" alt="Fondo inicial de la oficina" class="intro-imagen-fondo">
+    <h2 class="intro-texto-overlay">Levanta el telefono para iniciar</h2>
+    <video id="intro-video" class="intro-video oculta" src="video inicio vumetro.mp4" preload="auto"
+      playsinline></video>
+  </div>
+
+
+  <main id="portada" class="pantalla portada" aria-hidden="true">
+    <div class="canvas">
+      <h1 class="titulo">
+        <span class="titulo-voces">voces que</span>
+        <span class="titulo-enganan">engañan</span>
+      </h1>
+
+      <div class="bocadillo">
+        <p>¿Querés descubrir<br>qué puede pasar<br>con una simple<br>voz?</p>
+        <div class="bocadillo-cola" aria-hidden="true"></div>
+      </div>
+
+
+
+      <img src="assets/tipitooriginal.png" alt="Personaje detective" class="tipito">
+
+      <button id="btn-rojo" class="btn-avanzar-portada" aria-label="Avanzar">
+        <span class="circulo-asterisco">*</span>
+        <span class="texto-avanzar">Avanzar</span>
+      </button>
+    </div>
+  </main>
+
+  <section id="instrucciones" class="pantalla" aria-hidden="true">
+    <div class="canvas canvas-instrucciones">
+      <img src="telefonosolo1.png" alt="Teléfono rojo de escritorio" class="fondo-telefono-instrucciones">
+
+      <h2 class="instr-titulo">¿Cómo usar este teléfono?</h2>
+      <p class="instr-texto">
+        Para recorrer esta experiencia, solo deberas escuchar desde el<br>
+        telefono y marcar los número del mismo cuando se les<br>
+        indique.
+      </p>
+
+      <button id="btn-rojo-2" class="btn-avanzar-portada btn-instrucciones-avanzar" aria-label="Avanzar">
+        <span class="circulo-asterisco">*</span>
+        <span class="texto-avanzar">Avanzar</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- PANTALLA MENÚ PRINCIPAL -->
+  <section id="menu" class="pantalla" aria-hidden="true">
+    <div class="canvas canvas-menu-interactivo" id="canvas-menu">
+      <img src="Tresmensajes.png" alt="Fondo de la oficina con tres mensajes" class="fondo-menu-oficina">
+      <div class="menu-overlay-oscuro" id="menu-overlay"></div>
+
+      <h2 class="menu-titulo">Tres mensajes</h2>
+      <p class="menu-sub">marque los números que se muestran en el teléfono para ir al mensaje.</p>
+
+      <button class="opcion-tarjeta opcion-1" data-opcion="1" aria-label="Mensaje 1">
+        <span class="opcion-num">1</span>
+        <span class="opcion-texto">De una grabación a un dato</span>
+      </button>
+
+      <button class="opcion-tarjeta opcion-2" data-opcion="2" aria-label="Mensaje 2">
+        <span class="opcion-num">2</span>
+        <span class="opcion-texto">Estafas de voz</span>
+      </button>
+
+      <button class="opcion-tarjeta opcion-3" data-opcion="3" aria-label="Mensaje 3">
+        <span class="opcion-num">3</span>
+        <span class="opcion-texto">Tu identidad en manos de la IA</span>
+      </button>
+
+      <!-- BOTÓN DE EXPERIENCIA FINAL -->
+      <button class="btn-buzon-voz opcion-experiencia-final" data-opcion="0" aria-label="Ir al buzón de voz">
+        <span class="buzon-icono">0</span>
+        <span class="buzon-texto">Ir al buzón de<br>voz</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- PANTALLA NÚCLEO 1 (Opción 1 del menú) -->
+  <section id="nucleo-1" class="pantalla" aria-hidden="true">
+    <div class="canvas canvas-nucleo-principal">
+      <img src="fondoprincipal.jpeg" alt="Fondo de la mesa de trabajo" class="fondo-nucleo-principal">
+
+      <h2 class="nucleo-titulo-1">De una grabación a un dato</h2>
+      <p class="nucleo-sub-1">¿Qué hago si me piden mis datos personales por teléfono?</p>
+
+      <button class="tarjeta-opcion item-libreta-1" data-opcion="4" aria-label="Modalidades de engaño">
+        <span class="circulo-num">4</span>
+        <span class="texto-tarjeta">Modalidades de engaño</span>
+      </button>
+
+      <button class="tarjeta-opcion item-telefono-1" data-opcion="5" aria-label="Estafa telefonica">
+        <span class="circulo-num">5</span>
+        <span class="texto-tarjeta">Estafa telefonica</span>
+      </button>
+
+      <button class="tarjeta-opcion item-denuncias-1" data-opcion="6" aria-label="Denuncias">
+        <span class="circulo-num">6</span>
+        <span class="texto-tarjeta">Denuncias</span>
+      </button>
+
+      <img src="tipito7.png" alt="Personaje detective" class="tipito-nucleo-1">
+
+      <p class="instr-inferior-1">Marca los números que se ven en en la pantalla en el teléfono.</p>
+
+      <div class="volver-wrap-1">
+        <button id="btn-volver-menu" class="btn-hash-1" aria-label="Volver al menú">
+          <span class="hash-simbolo-1">#</span>
+        </button>
+        <span class="volver-texto-1">Volver</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANTALLA OPCIÓN 4: MODALIDAD DE ENGAÑO (SECUENCIA DE 3 PASOS) -->
+  <section id="modal-detalle-libreta" class="pantalla" aria-hidden="true">
+    <div class="canvas canvas-modal-modalidad">
+      <img src="modalidaddeengaño.jpeg" alt="Fondo modalidades de engaño" class="fondo-modalidad">
+
+      <div class="barra-progreso-container">
+        <div class="barra-progreso-fill"></div>
+      </div>
+
+      <!-- PANTALLA 1 (0 a 7 segundos) -->
+      <div class="contenido-estado estado-1">
+        <div class="texto-modalidad-wrap">
+          <p class="modalidad-parrafo">
+            Las <strong class="texto-oro">Modalidades de engaño</strong> más comunes son: <strong class="texto-oro">Se
+              hacen pasar</strong> por empleados de un call center.
+          </p>
+          <p class="modalidad-parrafo">
+            <strong class="texto-oro">Te engañan</strong> diciendo que un familiar está en peligro.
+          </p>
+          <p class="modalidad-parrafo">
+            <strong class="texto-oro">Te alertan falsamente</strong> sobre un supuesto riesgo en tu cuenta bancaria.
+          </p>
+        </div>
+
+        <div class="imagenes-modalidad-wrap">
+          <div class="img-mini-wrap">
+            <img src="llamada falsa2.png" alt="Llamada falsa 2" class="img-mini">
+          </div>
+          <div class="img-mini-wrap">
+            <img src="llamada.falsa.png" alt="Llamada falsa" class="img-mini">
+          </div>
+        </div>
+      </div>
+
+      <!-- PANTALLA 2 (7 a 14 segundos) -->
+      <div class="contenido-estado estado-2">
+        <div class="texto-modalidad-wrap">
+          <p class="modalidad-parrafo">
+            <strong class="texto-oro">Obtienen tus datos</strong> accediendo a <strong class="texto-oro">información
+              expuesta en</strong> redes sociales, perfiles o bases de datos públicas, formularios en línea o bases de
+            datos ilegales.
+          </p>
+        </div>
+
+        <div class="imagenes-modalidad-wrap">
+          <div class="img-mini-wrap">
+            <img src="datostuyos.png" alt="Datos tuyos" class="img-mini">
+          </div>
+          <div class="img-mini-wrap">
+            <img src="datosenredes.png" alt="Datos en redes" class="img-mini">
+          </div>
+        </div>
+      </div>
+
+      <!-- PANTALLA 3 (14 a 21 segundos - Llamada Entrante) -->
+      <div class="contenido-estado estado-3">
+        <div class="panel-llamada-entrante">
+          <h3 class="llamada-titulo">LLAMADA ENTRANTE</h3>
+          <div class="llamada-linea-punteada"></div>
+          <p class="llamada-texto">
+            Marca <span class="badge-numero-txt">0</span> para atender la llamada
+          </p>
+          <p class="llamada-texto">
+            Marca <span class="badge-numero-txt">9</span> para ignorar la llamada
+          </p>
+          <div class="llamada-linea-punteada"></div>
+          <p class="llamada-sub">Seleccioná estos número en el telefono</p>
+        </div>
+
+        <div class="imagenes-modalidad-wrap">
+          <div class="img-mini-wrap">
+            <img src="datostuyos.png" alt="Datos tuyos" class="img-mini">
+          </div>
+          <div class="img-mini-wrap">
+            <img src="datosenredes.png" alt="Datos en redes" class="img-mini">
+          </div>
+        </div>
+      </div>
+
+      <div class="volver-wrap-modalidad">
+        <button id="btn-cerrar-libreta" class="btn-hash-1" aria-label="Volver">
+          <span class="hash-simbolo-1">#</span>
+        </button>
+        <span class="volver-texto-1">Volver</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUDIO VISHING (NÚCLEO 1 - OPCIÓN 5) -->
+  <audio id="audio-vishing" src="vishing.mp3" preload="auto"></audio>
+
+  <!-- PANTALLA OPCIÓN 5: ESTAFA TELEFÓNICA -->
+  <section id="modal-estafa-telefonica" class="pantalla" aria-hidden="true">
+    <div class="canvas canvas-modal-estafa">
+      <img src="estafastel.jpeg" alt="Fondo estafa telefónica" class="fondo-estafastel">
+
+      <div class="texto-estafa-wrap">
+        <p class="estafa-parrafo">
+          El <strong class="texto-oro">vishing</strong> es una <strong class="texto-oro">estafa telefónica</strong> que
+          utiliza falsas emergencias y <strong class="texto-oro">voces clonadas con IA</strong> para engañar a las
+          víctimas y robar sus datos o dinero.
+        </p>
+      </div>
+
+      <div class="imagenes-estafa-wrap">
+        <div class="img-mini-wrap">
+          <img src="ilustracion estafa.png" alt="Ilustración de estafa" class="img-mini">
+        </div>
+        <div class="img-mini-wrap">
+          <img src="hecho con ia.png" alt="Hecho con IA" class="img-mini">
+        </div>
+      </div>
+
+      <div class="volver-wrap-estafa">
+        <button id="btn-cerrar-estafa" class="btn-hash-1" aria-label="Volver">
+          <span class="hash-simbolo-1">#</span>
+        </button>
+        <span class="volver-texto-1">Volver</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANTALLA OPCIÓN 6: DENUNCIAS -->
+  <section id="modal-denuncias" class="pantalla" aria-hidden="true">
+    <div class="canvas canvas-modal-denuncias">
+      <img src="denuncias.jpeg" alt="Fondo denuncias" class="fondo-denuncias">
+
+      <div class="texto-denuncias-wrap">
+        <p class="denuncias-parrafo">
+          En 2023, CABA registró más de <strong class="texto-oro">1.600 denuncias</strong> por <strong
+            class="texto-oro">delitos contra la identidad digital</strong>.<br>
+          443 fueron por <strong class="texto-oro">suplantación de identidad mediante perfiles falsos</strong>.
+        </p>
+      </div>
+
+      <div class="imagenes-denuncias-wrap">
+        <div class="espacio-reservado">
+          <img src="nucleo2img1.PNG" alt="Imagen del núcleo 2">
+        </div>
+        <div class="img-mini-wrap">
+          <img src="identidad digital.png" alt="Identidad digital" class="img-mini">
+        </div>
+      </div>
+
+      <div class="volver-wrap-denuncias">
+        <button id="btn-cerrar-denuncias" class="btn-hash-1" aria-label="Volver">
+          <span class="hash-simbolo-1">#</span>
+        </button>
+        <span class="volver-texto-1">Volver</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANTALLA NÚCLEO 2 -->
+  <section id="nucleo-2" class="pantalla" aria-hidden="true">
+    <div class="canvas canvas-nucleo-2">
+      <img src="estafasdevoz.png" alt="Fondo Estafas de voz" class="fondo-nucleo-2">
+
+      <h2 class="nucleo-titulo-2">Estafas de voz</h2>
+      <p class="nucleo-sub-2">¿Qué hago si me piden mis datos personales por teléfono?</p>
+
+      <button class="tarjeta-opcion item-clonacion-2" data-opcion="4" aria-label="Clonación">
+        <span class="circulo-num">4</span>
+        <span class="texto-tarjeta">Clonación</span>
+      </button>
+
+      <button class="tarjeta-opcion item-investigacion-2" data-opcion="5" aria-label="Investigación">
+        <span class="circulo-num">5</span>
+        <span class="texto-tarjeta">Investigación</span>
+      </button>
+
+      <button class="tarjeta-opcion item-info-2" data-opcion="6" aria-label="Info del delito">
+        <span class="circulo-num">6</span>
+        <span class="texto-tarjeta">Info del delito</span>
+      </button>
+
+      <img src="image.png" alt="Personaje leyendo el diario" class="tipito-nucleo-2">
+
+      <p class="instr-inferior-2">Marca los números que se ven en en la pantalla en el teléfono.</p>
+
+      <div class="volver-wrap-2">
+        <button id="btn-volver-menu-2" class="btn-hash-2" aria-label="Volver al menú">
+          <span class="hash-simbolo-2">#</span>
+        </button>
+        <span class="volver-texto-2">Volver</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUDIO CLONACIÓN (NÚCLEO 2 - OPCIÓN 4) -->
+  <audio id="audio-clonacion" src="clonacion.mp3" preload="auto"></audio>
+
+  <!-- PANTALLA NÚCLEO 2 - OPCIÓN 4: CLONACIÓN -->
+  <section id="modal-clonacion" class="pantalla" aria-hidden="true">
+    <div class="canvas canvas-modal-clonacion">
+      <img src="clonacion.png" alt="Fondo clonación" class="fondo-clonacion">
+
+      <div class="texto-clonacion-wrap">
+        <p class="clonacion-parrafo">
+          <strong class="texto-oro">La clonación de voz con IA</strong> permite imitar la voz de una persona y generar
+          <strong class="texto-oro">audios falsos muy realistas</strong>. Para realizar estas estafas, los delincuentes
+          obtienen nombres y teléfonos de redes sociales, bases de datos y formularios.
+        </p>
+      </div>
+
+      <div class="imagenes-clonacion-wrap">
+        <div class="img-mini-wrap">
+          <img src="clonacion de voz.png" alt="Clonación de voz" class="img-mini">
+        </div>
+      </div>
+
+      <div class="volver-wrap-clonacion">
+        <button id="btn-cerrar-clonacion" class="btn-hash-1" aria-label="Volver">
+          <span class="hash-simbolo-1">#</span>
+        </button>
+        <span class="volver-texto-1">Volver</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANTALLA NÚCLEO 2 - OPCIÓN 5: INVESTIGACIÓN -->
+  <section id="modal-investigacion" class="pantalla" aria-hidden="true">
+    <div class="canvas canvas-modal-investigacion">
+      <img src="investigacion.jpeg" alt="Fondo investigación" class="fondo-investigacion">
+
+      <div class="texto-investigacion-wrap">
+        <p class="investigacion-parrafo">
+          <strong class="texto-oro">Una investigación</strong> de la Fiscalía N.º 1 de Quilmes permitió desarticular una
+          <strong class="texto-oro">estafa millonaria a través de WhatsApp</strong>, en la que se utilizaron <strong
+            class="texto-oro">audios generados</strong> con inteligencia artificial, capaces de imitar con precisión la
+          voz original para engañar a las víctimas.
+        </p>
+      </div>
+
+      <div class="imagenes-investigacion-wrap">
+        <div class="img-mini-wrap">
+          <img src="whatsApp.png" alt="Estafa a través de WhatsApp" class="img-mini">
+        </div>
+      </div>
+
+      <div class="volver-wrap-investigacion">
+        <button id="btn-cerrar-investigacion" class="btn-hash-1" aria-label="Volver">
+          <span class="hash-simbolo-1">#</span>
+        </button>
+        <span class="volver-texto-1">Volver</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANTALLA NÚCLEO 2 - OPCIÓN 6: INFO DEL DELITO (3 Momentos) -->
+  <section id="modal-infodedelito" class="pantalla" aria-hidden="true">
+    <div class="canvas canvas-modal-infodedelito">
+      <div class="fondo-infodedelito"></div>
+
+      <div class="barra-progreso-container">
+        <div class="barra-progreso-fill"></div>
+      </div>
+
+      <!-- ESTADO 1 -->
+      <div class="contenido-estado estado-1">
+        <div class="texto-infodedelito-wrap">
+          <p class="infodedelito-parrafo">
+            Una persona te llama por teléfono<br>
+            e intenta tener tus <span class="texto-oro">datos<br>
+            personales</span>, <span class="texto-oro">financieros</span> o los<br>
+            <span class="texto-oro">nombres</span> de tus familiares,<br>
+            mediante engaños.
+          </p>
+          <p class="infodedelito-parrafo" style="margin-top: 2cqh;">
+            Los estafadores <span class="texto-oro">utilizan</span> técnicas<br>
+            para <span class="texto-oro">manipularte</span> y conseguir que<br>
+            compartas información <span class="texto-oro">sin darte<br>
+            cuenta</span>.
+          </p>
+        </div>
+        <div class="imagenes-infodedelito-wrap">
+          <div class="tarjeta-dialogo-abuela">
+            <p>- &nbsp;Hola abuela</p>
+            <p>- &nbsp;¿Quién es?</p>
+            <p>- &nbsp;¿Cómo quién es? Soy yo tu nieto</p>
+            <p>- &nbsp;Ah, Hola Mateo.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ESTADO 2 -->
+      <div class="contenido-estado estado-2">
+        <div class="texto-infodedelito-wrap">
+          <p class="infodedelito-parrafo">
+            Suelen inventar <span class="texto-oro">situaciones urgentes</span>, como que un <span
+              class="texto-oro">familiar está en peligro</span> o necesita <span class="texto-oro">ayuda
+              inmediata</span>, haciéndose pasar por intermediarios para generar miedo y lograr que <span
+              class="texto-oro">actúes sin pensar.</span>
+          </p>
+        </div>
+        <div class="imagenes-infodedelito-wrap">
+          <div class="img-mini-wrap" style="width: 35cqw; height: 26cqh;">
+            <img src="estafasllamado.png" alt="Llamada de estafa" class="img-mini">
+          </div>
+        </div>
+      </div>
+
+      <!-- ESTADO 3 (Llamada entrante) -->
+      <div class="contenido-estado estado-3">
+        <div class="texto-infodedelito-wrap">
+          <p class="infodedelito-parrafo">
+            Suelen inventar <span class="texto-oro">urgentes</span>, como que un <span class="texto-oro">está en
+              peligro</span> o necesita <span class="texto-oro">inmediata</span>, haciéndose pasar por intermediarios
+            para generar miedo y lograr que <span class="texto-oro">actúes sin pensar.</span>
+          </p>
+        </div>
+        <div class="imagenes-infodedelito-wrap">
+          <div class="img-mini-wrap" style="width: 35cqw; height: 26cqh;">
+            <img src="estafasllamado.png" alt="Llamada de estafa" class="img-mini">
+          </div>
+        </div>
+
+        <div class="panel-llamada-entrante">
+          <h3 class="llamada-titulo">LLAMADA ENTRANTE</h3>
+          <div class="llamada-linea-punteada"></div>
+          <p class="llamada-texto">
+            Marca <span class="badge-numero-txt">0</span> para atender la llamada
+          </p>
+          <p class="llamada-texto">
+            Marca <span class="badge-numero-txt">9</span> para ignorar la llamada
+          </p>
+          <div class="llamada-linea-punteada"></div>
+          <p class="llamada-sub">Seleccioná estos número en el telefono</p>
+        </div>
+      </div>
+
+      <div class="volver-wrap-infodedelito">
+        <button id="btn-cerrar-infodedelito" class="btn-hash-2" aria-label="Volver">
+          <span class="hash-simbolo-2">#</span>
+        </button>
+        <span class="volver-texto-2">Volver</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANTALLA NÚCLEO 3 -->
+  <section id="nucleo-3" class="pantalla" aria-hidden="true">
+    <div class="canvas canvas-nucleo-3">
+      <img src="tuidentidad.png" alt="Fondo Tu identidad en manos de la IA" class="fondo-nucleo-3">
+
+      <h2 class="nucleo-titulo-3">Tu identidad en manos de la IA</h2>
+      <p class="nucleo-sub-3">¿podemos decidir cómo y para qué se utiliza?</p>
+
+      <button class="tarjeta-opcion item-ley-3" data-opcion="4" aria-label="Ley de protección">
+        <span class="circulo-num">4</span>
+        <span class="texto-tarjeta">Ley de protección</span>
+      </button>
+
+      <button class="tarjeta-opcion item-robo-3" data-opcion="5" aria-label="Robo de identidad">
+        <span class="circulo-num">5</span>
+        <span class="texto-tarjeta">Robo de identidad</span>
+      </button>
+
+      <button class="tarjeta-opcion item-identidad-3" data-opcion="6" aria-label="Identidad Digital">
+        <span class="circulo-num">6</span>
+        <span class="texto-tarjeta">Identidad Digital</span>
+      </button>
+
+      <img src="tipito5.png" alt="Personaje detective" class="tipito-nucleo-3">
+
+      <p class="instr-inferior-3">Marca los números que se ven en en la pantalla en el teléfono.</p>
+
+      <div class="volver-wrap-3">
+        <button id="btn-volver-menu-3" class="btn-hash-3" aria-label="Volver al menú">
+          <span class="hash-simbolo-3">#</span>
+        </button>
+        <span class="volver-texto-3">Volver</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANTALLA NÚCLEO 3 - OPCIÓN 4: LEY DE PROTECCIÓN -->
+  <section id="modal-ley" class="pantalla" aria-hidden="true">
+    <div class="canvas canvas-modal-ley">
+      <img src="ley.png" alt="Fondo Ley de protección" class="fondo-ley">
+
+      <div class="texto-ley-wrap">
+        <p class="ley-parrafo">
+          La <strong class="texto-oro">Ley 25.326</strong> de Protección de Datos Personales <strong
+            class="texto-oro">protege la información que permite identificarte</strong> frente a usos no autorizados.
+          Esto incluye tu imagen y los datos biométricos, como los rasgos de tu voz, que pueden utilizarse para
+          identificarte.
+        </p>
+      </div>
+
+      <div class="imagenes-ley-wrap">
+        <div class="img-mini-wrap img-ley-wrap">
+          <img src="Iconos de IA.png" alt="Iconos de IA y biométricos" class="img-mini">
+        </div>
+      </div>
+
+      <div class="volver-wrap-ley">
+        <button id="btn-cerrar-ley" class="btn-hash-1" aria-label="Volver">
+          <span class="hash-simbolo-1">#</span>
+        </button>
+        <span class="volver-texto-1">Volver</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANTALLA NÚCLEO 3 - OPCIÓN 5: ROBO DE IDENTIDAD -->
+  <section id="modal-robo" class="pantalla" aria-hidden="true">
+    <div class="canvas canvas-modal-robo">
+      <img src="robodeidentidad.png" alt="Fondo Robo de identidad" class="fondo-robo">
+
+      <div class="texto-robo-wrap">
+        <p class="robo-parrafo">
+          El periodista <strong class="texto-oro">Alejandro Fantino denunció en 2025 un video creado con IA que imitaba
+            su imagen y voz</strong> para promocionar falsas inversiones en redes sociales. Tras advertir sobre la
+          estafa, presentó una <strong class="texto-oro">denuncia legal</strong> en la Ciudad de Buenos Aires.
+        </p>
+      </div>
+
+      <div class="imagenes-robo-wrap">
+        <div class="img-mini-wrap">
+          <img src="fantino.png" alt="Alejandro Fantino" class="img-mini">
+        </div>
+        <div class="img-mini-wrap">
+          <img src="fantino twiter.png" alt="Tweet de Alejandro Fantino" class="img-mini">
+        </div>
+      </div>
+
+      <div class="volver-wrap-robo">
+        <button id="btn-cerrar-robo" class="btn-hash-1" aria-label="Volver">
+          <span class="hash-simbolo-1">#</span>
+        </button>
+        <span class="volver-texto-1">Volver</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANTALLA NÚCLEO 3 - OPCIÓN 6: IDENTIDAD DIGITAL -->
+  <section id="modal-redes" class="pantalla" aria-hidden="true">
+    <div class="canvas canvas-modal-redes">
+      <img src="redes.png" alt="Fondo identidad digital redes" class="fondo-redes">
+
+      <div class="contenido-estado estado-1">
+        <div class="texto-redes-wrap">
+          <p class="redes-parrafo">
+            La <strong class="texto-oro">identidad digital</strong> se construye a partir de información que compartimos
+            en internet como datos que aparecen en nuestras redes, por ejemplo:
+          </p>
+          <ul class="redes-lista">
+            <li><strong class="texto-oro">Perfiles:</strong> información en redes sociales y profesionales.</li>
+            <li><strong class="texto-oro">Contactos:</strong> amigos, seguidores y correos electrónicos.</li>
+          </ul>
+        </div>
+
+        <div class="imagenes-redes-wrap">
+          <div class="img-mini-wrap">
+            <img src="perfil.png" alt="Perfil de red social" class="img-mini" style="object-position: bottom;">
+          </div>
+        </div>
+      </div>
+
+      <div class="contenido-estado estado-2">
+        <div class="texto-redes-wrap">
+          <p class="redes-parrafo">
+            Y <strong class="texto-oro">contenidos digitales</strong> como, por ejemplo:
+          </p>
+          <ul class="redes-lista">
+            <li><strong class="texto-oro">Producciones:</strong> fotos, videos y publicaciones.</li>
+            <li><strong class="texto-oro">Interacciones:</strong> comentarios, opiniones y valoraciones.</li>
+            <li><strong class="texto-oro">Mensajería:</strong> conversaciones en WhatsApp, Telegram y otras
+              aplicaciones.</li>
+          </ul>
+        </div>
+
+        <div class="imagenes-redes-wrap">
+          <div class="img-mini-wrap">
+            <img src="twitter.png" alt="Publicación de Twitter" class="img-mini">
+          </div>
+        </div>
+      </div>
+
+      <div class="volver-wrap-redes">
+        <button id="btn-cerrar-redes" class="btn-hash-1" aria-label="Volver">
+          <span class="hash-simbolo-1">#</span>
+        </button>
+        <span class="volver-texto-1">Volver</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANTALLA DE EXPERIENCIA FINAL (CONSIGNA) -->
+  <section id="experiencia-final" class="pantalla" aria-hidden="true">
+    <div class="canvas canvas-experiencia-final">
+      <img src="fondo real o ia.jpeg" alt="Fondo experiencia final teléfono" class="fondo-experiencia-final">
+
+      <div class="panel-experiencia-final">
+        <h3 class="exp-titulo">Te llegó un mensaje de voz. Escuchalo y elegí:</h3>
+        <p class="exp-sub">¿REAL o IA? ¿Es una voz auténtica o fue generada artificialmente?</p>
+        <div class="exp-linea-punteada"></div>
+        <p class="exp-texto">
+          Elegí si la llamada es <strong class="texto-oro">REAL</strong> o marcando <span
+            class="badge-numero-txt">7</span> si es real o <span class="badge-numero-txt">8</span> si es IA en el
+          teléfono.
+        </p>
+      </div>
+
+      <button id="btn-avanzar-exp" class="btn-avanzar-exp-izq" aria-label="Avanzar">
+        <span class="circulo-asterisco">*</span>
+        <span class="texto-avanzar">Avanzar</span>
+      </button>
+
+      <div class="volver-wrap-exp">
+        <button id="btn-cerrar-exp" class="btn-hash-1" aria-label="Volver">
+          <span class="hash-simbolo-1">#</span>
+        </button>
+        <span class="volver-texto-1">Volver</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANTALLA DE REPRODUCCIÓN DE AUDIOS -->
+  <section id="experiencia-audio" class="pantalla" aria-hidden="true">
+    <div class="canvas canvas-experiencia-final">
+      <img src="fondo real o ia.jpeg" alt="Fondo reproducción audio" class="fondo-experiencia-final">
+
+      <h2 id="audio-num-titulo" class="audio-num-titulo">Audio número 1</h2>
+
+      <button id="btn-exp-real" class="btn-opcion-ia real" aria-label="Real">
+        <span class="circulo-num-ia">7</span>
+        <span class="texto-ia-btn">Real</span>
+      </button>
+
+      <button id="btn-exp-ia" class="btn-opcion-ia ia" aria-label="IA">
+        <span class="circulo-num-ia">8</span>
+        <span class="texto-ia-btn">IA</span>
+      </button>
+
+      <img src="tipito7.png" alt="Personaje" class="tipito-audio-exp">
+    </div>
+  </section>
+
+  <!-- ARCHIVOS DE AUDIO EXPERIENCIA -->
+  <audio id="audio-exp-1" src="llamada1.mpeg" preload="auto"></audio>
+  <audio id="audio-exp-2" src="audio2ia.mp3" preload="auto"></audio>
+  <audio id="audio-exp-3" src="audio3ia.mp3" preload="auto"></audio>
+  <audio id="audio-exp-4" src="audio4real.mp3" preload="auto"></audio>
+
+  <!-- LLAMADA ACTIVA NÚCLEO 1 -->
+  <audio id="audio-llamada1" src="llamada1.mpeg" preload="auto"></audio>
+  <section id="modal-llamada-activa-4" class="pantalla" aria-hidden="true">
+    <div class="canvas canvas-modal-llamada-activa">
+      <video class="fondo-llamada-video" src="video inicio vumetro.mp4" autoplay loop muted playsinline></video>
+
+      <div class="subtitulos-llamada-wrap">
+        <div id="dialogo-karaoke" class="subtitulos-llamada-texto">
+          <p class="linea-dialogo" data-inicio="0.6" data-fin="4.4">
+            <strong class="etiqueta-rol estafador">ESTAFADOR:</strong>
+            <span class="palabra">Buenas</span> <span class="palabra">tardes,</span> <span class="palabra">la</span> <span class="palabra">llamo</span> <span class="palabra">del</span> <span class="palabra">área</span> <span class="palabra">de</span> <span class="palabra">seguridad</span> <span class="palabra">de</span> <span class="palabra">su</span> <span class="palabra">banco</span>
+          </p>
+          <p class="linea-dialogo" data-inicio="4.4" data-fin="7.5">
+            <strong class="etiqueta-rol estafador">ESTAFADOR:</strong>
+            <span class="palabra">porque</span> <span class="palabra">detectamos</span> <span class="palabra">un</span> <span class="palabra">movimiento</span> <span class="palabra">sospechoso</span> <span class="palabra">en</span> <span class="palabra">su</span> <span class="palabra">cuenta.</span>
+          </p>
+          <p class="linea-dialogo" data-inicio="7.9" data-fin="10.2">
+            <strong class="etiqueta-rol estafador">ESTAFADOR:</strong>
+            <span class="palabra">¿Me</span> <span class="palabra">podría</span> <span class="palabra">confirmar</span> <span class="palabra">su</span> <span class="palabra">nombre,</span> <span class="palabra">por</span> <span class="palabra">favor?</span>
+          </p>
+          <p class="linea-dialogo" data-inicio="10.4" data-fin="12.0">
+            <strong class="etiqueta-rol victima">VÍCTIMA:</strong>
+            <span class="palabra">Sí,</span> <span class="palabra">soy</span> <span class="palabra">Marta.</span>
+          </p>
+          <p class="linea-dialogo" data-inicio="12.1" data-fin="14.1">
+            <strong class="etiqueta-rol estafador">ESTAFADOR:</strong>
+            <span class="palabra">Gracias,</span> <span class="palabra">detectamos</span> <span class="palabra">un</span> <span class="palabra">intento</span> <span class="palabra">de</span> <span class="palabra">transferencia</span>
+          </p>
+          <p class="linea-dialogo" data-inicio="14.1" data-fin="16.2">
+            <strong class="etiqueta-rol estafador">ESTAFADOR:</strong>
+            <span class="palabra">que</span> <span class="palabra">podría</span> <span class="palabra">comprometer</span> <span class="palabra">su</span> <span class="palabra">dinero.</span>
+          </p>
+          <p class="linea-dialogo" data-inicio="16.7" data-fin="20.1">
+            <strong class="etiqueta-rol estafador">ESTAFADOR:</strong>
+            <span class="palabra">Necesitaríamos</span> <span class="palabra">verificar</span> <span class="palabra">su</span> <span class="palabra">identidad</span> <span class="palabra">para</span> <span class="palabra">proteger</span> <span class="palabra">su</span> <span class="palabra">cuenta.</span>
+          </p>
+          <p class="linea-dialogo" data-inicio="20.8" data-fin="23.9">
+            <strong class="etiqueta-rol estafador">ESTAFADOR:</strong>
+            <span class="palabra">¿Está</span> <span class="palabra">cerca</span> <span class="palabra">de</span> <span class="palabra">su</span> <span class="palabra">teléfono</span> <span class="palabra">para</span> <span class="palabra">seguir</span> <span class="palabra">unos</span> <span class="palabra">pasos</span> <span class="palabra">de</span> <span class="palabra">seguridad?</span>
+          </p>
+          <p class="linea-dialogo" data-inicio="24.0" data-fin="25.4">
+            <strong class="etiqueta-rol victima">VÍCTIMA:</strong>
+            <span class="palabra">Me</span> <span class="palabra">acaba</span> <span class="palabra">de</span> <span class="palabra">llegar</span> <span class="palabra">un</span> <span class="palabra">mensaje.</span>
+          </p>
+          <p class="linea-dialogo" data-inicio="25.4" data-fin="27.6">
+            <strong class="etiqueta-rol estafador">ESTAFADOR:</strong>
+            <span class="palabra">Ahora</span> <span class="palabra">le</span> <span class="palabra">va</span> <span class="palabra">a</span> <span class="palabra">llegar</span> <span class="palabra">un</span> <span class="palabra">código</span> <span class="palabra">de</span> <span class="palabra">verificación,</span>
+          </p>
+          <p class="linea-dialogo" data-inicio="27.7" data-fin="30.7">
+            <strong class="etiqueta-rol estafador">ESTAFADOR:</strong>
+            <span class="palabra">necesitaría</span> <span class="palabra">que</span> <span class="palabra">me</span> <span class="palabra">lo</span> <span class="palabra">diga</span> <span class="palabra">para</span> <span class="palabra">bloquear</span> <span class="palabra">la</span> <span class="palabra">transferencia.</span>
+          </p>
+          <p class="linea-dialogo" data-inicio="30.8" data-fin="32.0">
+            <strong class="etiqueta-rol victima">VÍCTIMA:</strong>
+            <span class="palabra">¿Qué</span> <span class="palabra">hago</span> <span class="palabra">con</span> <span class="palabra">este</span> <span class="palabra">código?</span>
+          </p>
+          <p class="linea-dialogo" data-inicio="32.1" data-fin="34.2">
+            <strong class="etiqueta-rol estafador">ESTAFADOR:</strong>
+            <span class="palabra">Dígame</span> <span class="palabra">el</span> <span class="palabra">código</span> <span class="palabra">y</span> <span class="palabra">vamos</span> <span class="palabra">a</span> <span class="palabra">proteger</span> <span class="palabra">su</span> <span class="palabra">cuenta.</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="volver-wrap-llamada-activa">
+        <button id="btn-cerrar-llamada-activa" class="btn-hash-1" aria-label="Volver">
+          <span class="hash-simbolo-1">#</span>
+        </button>
+        <span class="volver-texto-1">Volver</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- LLAMADA ACTIVA NÚCLEO 2 (Con tu texto y karaoke) -->
+  <audio id="audio-llamada2" src="llamada2.mpeg" preload="auto"></audio>
+  <section id="modal-llamada-activa-info" class="pantalla" aria-hidden="true">
+    <div class="canvas canvas-modal-llamada-activa">
+      <video class="fondo-llamada-video" src="video inicio vumetro.mp4" autoplay loop muted playsinline></video>
+
+      <div class="subtitulos-llamada-wrap">
+        <div id="dialogo-karaoke-n2" class="subtitulos-llamada-texto">
+          <p class="linea-dialogo" data-inicio="0.1" data-fin="2.6">
+            <strong class="etiqueta-rol estafador">ESTAFADOR:</strong>
+            <span class="palabra">Hola,</span> <span class="palabra">¿hablo</span> <span class="palabra">con</span> <span class="palabra">un</span> <span class="palabra">familiar</span> <span class="palabra">de</span> <span class="palabra">Nicolás?</span>
+          </p>
+          <p class="linea-dialogo" data-inicio="2.7" data-fin="3.6">
+            <strong class="etiqueta-rol victima">VÍCTIMA:</strong>
+            <span class="palabra">Hola,</span> <span class="palabra">sí.</span>
+          </p>
+          <p class="linea-dialogo" data-inicio="3.7" data-fin="6.2">
+            <strong class="etiqueta-rol estafador">ESTAFADOR:</strong>
+            <span class="palabra">Te</span> <span class="palabra">llamamos</span> <span class="palabra">porque</span> <span class="palabra">tuvo</span> <span class="palabra">un</span> <span class="palabra">problema</span> <span class="palabra">grave</span>
+          </p>
+          <p class="linea-dialogo" data-inicio="6.2" data-fin="9.2">
+            <strong class="etiqueta-rol estafador">ESTAFADOR:</strong>
+            <span class="palabra">y</span> <span class="palabra">necesitamos</span> <span class="palabra">confirmar</span> <span class="palabra">sus</span> <span class="palabra">datos</span> <span class="palabra">para</span> <span class="palabra">poder</span> <span class="palabra">asistirlo.</span>
+          </p>
+          <p class="linea-dialogo" data-inicio="9.3" data-fin="10.7">
+            <strong class="etiqueta-rol victima">VÍCTIMA:</strong>
+            <span class="palabra">¿Qué</span> <span class="palabra">pasó?</span> <span class="palabra">¿Está</span> <span class="palabra">bien?</span>
+          </p>
+          <p class="linea-dialogo" data-inicio="10.8" data-fin="14.1">
+            <strong class="etiqueta-rol estafador">ESTAFADOR:</strong>
+            <span class="palabra">Está</span> <span class="palabra">siendo</span> <span class="palabra">atendido,</span> <span class="palabra">pero</span> <span class="palabra">necesitamos</span> <span class="palabra">actuar</span> <span class="palabra">rápido.</span>
+          </p>
+          <p class="linea-dialogo" data-inicio="14.5" data-fin="17.4">
+            <strong class="etiqueta-rol estafador">ESTAFADOR:</strong>
+            <span class="palabra">Decime</span> <span class="palabra">tu</span> <span class="palabra">nombre</span> <span class="palabra">completo,</span> <span class="palabra">tu</span> <span class="palabra">número</span> <span class="palabra">de</span> <span class="palabra">documento</span>
+          </p>
+          <p class="linea-dialogo" data-inicio="17.5" data-fin="18.9">
+            <strong class="etiqueta-rol estafador">ESTAFADOR:</strong>
+            <span class="palabra">y</span> <span class="palabra">qué</span> <span class="palabra">parentesco</span> <span class="palabra">tenés</span> <span class="palabra">con</span> <span class="palabra">él.</span>
+          </p>
+          <p class="linea-dialogo" data-inicio="19.0" data-fin="21.3">
+            <strong class="etiqueta-rol victima">VÍCTIMA:</strong>
+            <span class="palabra">Soy</span> <span class="palabra">María</span> <span class="palabra">Lorena</span> <span class="palabra">Zaragoza,</span> <span class="palabra">soy</span> <span class="palabra">su</span> <span class="palabra">madre.</span>
+          </p>
+          <p class="linea-dialogo" data-inicio="21.5" data-fin="23.8">
+            <strong class="etiqueta-rol estafador">ESTAFADOR:</strong>
+            <span class="palabra">Es</span> <span class="palabra">para</span> <span class="palabra">registrar</span> <span class="palabra">el</span> <span class="palabra">contacto</span> <span class="palabra">de</span> <span class="palabra">emergencia.</span>
+          </p>
+          <p class="linea-dialogo" data-inicio="24.2" data-fin="26.4">
+            <strong class="etiqueta-rol estafador">ESTAFADOR:</strong>
+            <span class="palabra">También</span> <span class="palabra">necesito</span> <span class="palabra">tu</span> <span class="palabra">número</span> <span class="palabra">de</span> <span class="palabra">teléfono</span>
+          </p>
+          <p class="linea-dialogo" data-inicio="26.5" data-fin="28.8">
+            <strong class="etiqueta-rol estafador">ESTAFADOR:</strong>
+            <span class="palabra">y</span> <span class="palabra">una</span> <span class="palabra">dirección</span> <span class="palabra">para</span> <span class="palabra">comunicarnos</span> <span class="palabra">con</span> <span class="palabra">vos.</span>
+          </p>
+          <p class="linea-dialogo" data-inicio="29.2" data-fin="30.7">
+            <strong class="etiqueta-rol estafador">ESTAFADOR:</strong>
+            <span class="palabra">Te</span> <span class="palabra">vamos</span> <span class="palabra">a</span> <span class="palabra">explicar</span> <span class="palabra">todo,</span>
+          </p>
+          <p class="linea-dialogo" data-inicio="30.9" data-fin="34.2">
+            <strong class="etiqueta-rol estafador">ESTAFADOR:</strong>
+            <span class="palabra">pero</span> <span class="palabra">primero</span> <span class="palabra">necesito</span> <span class="palabra">que</span> <span class="palabra">me</span> <span class="palabra">confirmes</span> <span class="palabra">esos</span> <span class="palabra">datos</span>
+          </p>
+          <p class="linea-dialogo" data-inicio="34.3" data-fin="36.3">
+            <strong class="etiqueta-rol estafador">ESTAFADOR:</strong>
+            <span class="palabra">para</span> <span class="palabra">darte</span> <span class="palabra">la</span> <span class="palabra">información</span> <span class="palabra">correspondiente</span>
+          </p>
+          <p class="linea-dialogo" data-inicio="36.4" data-fin="38.0">
+            <strong class="etiqueta-rol estafador">ESTAFADOR:</strong>
+            <span class="palabra">de</span> <span class="palabra">su</span> <span class="palabra">estado</span> <span class="palabra">y</span> <span class="palabra">cómo</span> <span class="palabra">procederemos.</span>
+          </p>
+          <p class="linea-dialogo" data-inicio="38.2" data-fin="40.4">
+            <strong class="etiqueta-rol victima">VÍCTIMA:</strong>
+            <span class="palabra">¿Dónde</span> <span class="palabra">está?</span> <span class="palabra">Para</span> <span class="palabra">ir</span> <span class="palabra">a</span> <span class="palabra">completar</span> <span class="palabra">los</span> <span class="palabra">datos</span> <span class="palabra">mejor.</span>
+          </p>
+          <p class="linea-dialogo" data-inicio="38.2" data-fin="40.4">
+            <strong class="etiqueta-rol victima">VÍCTIMA:</strong>
+            <span class="palabra">¿Dónde</span> <span class="palabra">está?</span> <span class="palabra">Para</span> <span class="palabra">ir</span> <span class="palabra">a</span> <span class="palabra">completar</span> <span class="palabra">los</span> <span class="palabra">datos</span> <span class="palabra">mejor.</span>
+          </p>
+        </div>
+      </div>  
+
+      <div class="volver-wrap-llamada-activa">
+        <button id="btn-cerrar-llamada-activa-info" class="btn-hash-2" aria-label="Volver">
+          <span class="hash-simbolo-2">#</span>
+        </button>
+        <span class="volver-texto-2">Volver</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANTALLAS DE FEEDBACK -->
+  <section id="experiencia-error-real" class="pantalla" aria-hidden="true">
+    <div class="canvas canvas-experiencia-final">
+      <img src="fondo real o ia.jpeg" alt="Fondo teléfono" class="fondo-experiencia-final">
+      <h2 class="exp-feedback-titulo">Te equivocaste!!!</h2>
+      <div class="panel-feedback-wrap">
+        <p class="feedback-parrafo">Esta llamada era real, no fue generada con inteligencia artificial.</p>
+      </div>
+      <img src="tipito7.png" alt="Personaje" class="tipito-feedback">
+      <button id="btn-avanzar-error-real" class="btn-avanzar-portada" aria-label="Avanzar">
+        <span class="circulo-asterisco">*</span>
+        <span class="texto-avanzar">Avanzar</span>
+      </button>
+    </div>
+  </section>
+
+  <section id="experiencia-acierto-real" class="pantalla" aria-hidden="true">
+    <div class="canvas canvas-experiencia-final">
+      <img src="fondo real o ia.jpeg" alt="Fondo teléfono" class="fondo-experiencia-final">
+      <h2 class="exp-feedback-titulo">¡Muy bien!</h2>
+      <div class="panel-feedback-wrap">
+        <p class="feedback-parrafo">Esta llamada sí es real. Aun así, recordá que no siempre es fácil distinguir una voz
+          auténtica de una clonada.</p>
+      </div>
+      <img src="tipito7.png" alt="Personaje" class="tipito-feedback">
+      <button id="btn-avanzar-acierto-real" class="btn-avanzar-portada" aria-label="Avanzar">
+        <span class="circulo-asterisco">*</span>
+        <span class="texto-avanzar">Avanzar</span>
+      </button>
+    </div>
+  </section>
+
+  <section id="experiencia-acierto-ia" class="pantalla" aria-hidden="true">
+    <div class="canvas canvas-experiencia-final">
+      <img src="fondo real o ia.jpeg" alt="Fondo teléfono" class="fondo-experiencia-final">
+      <h2 class="exp-feedback-titulo">¡Muy bien!</h2>
+      <div class="panel-feedback-wrap">
+        <p class="feedback-parrafo">La IA no pudo engañarte. Identificaste correctamente que la llamada estaba generada
+          con inteligencia artificial.</p>
+      </div>
+      <img src="tipito7.png" alt="Personaje" class="tipito-feedback">
+      <button id="btn-avanzar-acierto-ia" class="btn-avanzar-portada" aria-label="Avanzar">
+        <span class="circulo-asterisco">*</span>
+        <span class="texto-avanzar">Avanzar</span>
+      </button>
+    </div>
+  </section>
+
+  <section id="experiencia-error-ia" class="pantalla" aria-hidden="true">
+    <div class="canvas canvas-experiencia-final">
+      <img src="fondo real o ia.jpeg" alt="Fondo teléfono" class="fondo-experiencia-final">
+      <h2 class="exp-feedback-titulo">Te equivocaste!!!</h2>
+      <div class="panel-feedback-wrap">
+        <p class="feedback-parrafo">Esta llamada fue generada con inteligencia artificial, no era real.</p>
+      </div>
+      <img src="tipito7.png" alt="Personaje" class="tipito-feedback">
+      <button id="btn-avanzar-error-ia" class="btn-avanzar-portada" aria-label="Avanzar">
+        <span class="circulo-asterisco">*</span>
+        <span class="texto-avanzar">Avanzar</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- PANTALLAS DE FEEDBACK GENERAL FINAL -->
+  <section id="experiencia-resumen-exito" class="pantalla" aria-hidden="true">
+    <div class="canvas canvas-experiencia-final">
+      <img src="fondo real o ia.jpeg" alt="Fondo teléfono" class="fondo-experiencia-final">
+      <h2 class="exp-feedback-titulo">¡Muy bien!</h2>
+      <div class="panel-feedback-wrap">
+        <p class="feedback-parrafo">
+          ¡Excelente oído! Lograste identificar la mayoría de las voces y descubriste cuáles fueron creadas con IA y cuáles eran reales.
+        </p>
+      </div>
+      <img src="tipitomuybien.png" alt="Personaje detective celebrando" class="tipito-feedback tipito-resumen-exito">
+      <button id="btn-finalizar-resumen-exito" class="btn-avanzar-portada" aria-label="Finalizar">
+        <span class="circulo-asterisco">*</span>
+        <span class="texto-avanzar">Avanzar</span>
+      </button>
+    </div>
+  </section>
+
+  <section id="experiencia-resumen-fallo" class="pantalla" aria-hidden="true">
+    <div class="canvas canvas-experiencia-final">
+      <img src="fondo real o ia.jpeg" alt="Fondo teléfono" class="fondo-experiencia-final">
+      <h2 class="exp-feedback-titulo">Te equivocaste!!!</h2>
+      <div class="panel-feedback-wrap">
+        <p class="feedback-parrafo">
+          La inteligencia artificial logró engañarte en la mayoría de los casos. Las voces sintéticas son cada vez más difíciles de distinguir.
+        </p>
+      </div>
+      <img src="tipito6.png" alt="Personaje detective preocupado" class="tipito-feedback tipito-resumen-fallo">
+      <button id="btn-finalizar-resumen-fallo" class="btn-avanzar-portada" aria-label="Finalizar">
+        <span class="circulo-asterisco">*</span>
+        <span class="texto-avanzar">Avanzar</span>
+      </button>
+    </div>
+  </section>
+
+    <!-- PANTALLA DE CIERRE DE LA EXPERIENCIA -->
+  <section id="experiencia-cierre" class="pantalla" aria-hidden="true">
+    <div class="canvas canvas-cierre">
+      <div class="panel-cierre">
+        <h2 class="cierre-titulo">¿Quién está del otro lado?</h2>
+        <p class="cierre-parrafo">Durante esta experiencia, recibiste llamadas que podían ser reales o generadas con inteligencia artificial.</p>
+        <p class="cierre-parrafo">Algunas eran fáciles de reconocer. Otras, no.</p>
+        <p class="cierre-parrafo">Hoy, una voz puede sonar real sin serlo.</p>
+        <p class="cierre-parrafo">No todo lo que escuchás es lo que parece.</p>
+      </div>
+
+      <img src="tipito.png" alt="Personaje detective" class="tipito-cierre">
+
+      <button id="btn-avanzar-cierre" class="btn-avanzar-exp-izq btn-avanzar-cierre" aria-label="Avanzar">
+        <span class="circulo-asterisco">*</span>
+        <span class="texto-avanzar">Avanzar</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- PANTALLA FINAL-->
+  <section id="pantalla-final" class="pantalla" aria-hidden="true">
+    <div class="canvas canvas-experiencia-final">
+      <img src="pantallafinal.png" alt="Pantalla final" class="fondo-experiencia-final">
+    </div>
+  </section>
+  
+  <script src="script.js"></script>
+</body>
+
+</html>
