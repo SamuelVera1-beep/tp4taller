@@ -2328,9 +2328,13 @@ body {
   border-radius: 999px;
 }
 
-#modal-detalle-libreta.activo .barra-progreso-fill,
-#modal-robo.activo .barra-progreso-fill {
+#modal-detalle-libreta.activo .barra-progreso-fill {
   animation: llenarBarraTotal 7s linear forwards; /* se completa una vez por pantalla */
+}
+
+/* Identidad digital cambia de pantalla a los 5 segundos */
+#modal-redes.activo .barra-progreso-fill {
+  animation: llenarBarraTotal 5s linear forwards;
 }
 
 @keyframes llenarBarraTotal {

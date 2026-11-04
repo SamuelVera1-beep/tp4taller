@@ -798,9 +798,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (tarjetaOpcion5_N3 && modalRobo) {
     tarjetaOpcion5_N3.addEventListener('click', () => {
       pantalla = 'modal-robo';
-      modalRobo.classList.remove('activo');
-      void modalRobo.offsetWidth;
-      modalRobo.classList.add('activo');
       ocultar(nucleo3);
       mostrar(modalRobo);
     });
@@ -808,7 +805,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (btnCerrarRobo && modalRobo) {
     btnCerrarRobo.addEventListener('click', () => {
-      modalRobo.classList.remove('activo');
       ocultar(modalRobo);
       mostrar(nucleo3);
     });
@@ -817,7 +813,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (tarjetaOpcion6_N3 && modalRedes) {
     tarjetaOpcion6_N3.addEventListener('click', () => {
       pantalla = 'modal-redes';
-      modalRedes.classList.remove('cambiado');
+      modalRedes.classList.remove('cambiado', 'activo');
+      void modalRedes.offsetWidth;
+      modalRedes.classList.add('activo');
       ocultar(nucleo3);
       mostrar(modalRedes);
 
@@ -825,6 +823,7 @@ document.addEventListener('DOMContentLoaded', () => {
       timerLlamada = setTimeout(() => {
         if (modalRedes.classList.contains('visible')) {
           modalRedes.classList.add('cambiado');
+          reiniciarBarra(modalRedes);
         }
       }, 5000);
     });
@@ -833,7 +832,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (btnCerrarRedes && modalRedes) {
     btnCerrarRedes.addEventListener('click', () => {
       if (timerLlamada) clearTimeout(timerLlamada);
-      modalRedes.classList.remove('cambiado');
+      modalRedes.classList.remove('cambiado', 'activo');
       ocultar(modalRedes);
       mostrar(nucleo3);
     });
