@@ -2161,6 +2161,120 @@ body {
   pointer-events: none;
   z-index: 3;
 }
+
+/* Consigna REAL o IA: composición de la referencia visual */
+#experiencia-final .canvas-experiencia-final { background: #090706; }
+#experiencia-final .fondo-experiencia-final { filter: brightness(0.78) saturate(0.9); }
+#experiencia-final .panel-experiencia-final {
+  left: auto;
+  right: 10.5%;
+  top: auto;
+  bottom: 3.5%;
+  transform: none;
+  width: 56%;
+  min-height: 34%;
+  padding: 1.8cqh 2.8cqw;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0;
+  background: rgba(111, 78, 38, 0.74);
+  border: 0;
+  border-radius: 3cqh;
+  box-shadow: none;
+  z-index: 4;
+}
+
+/* El texto visible sale de ::after para fijar los saltos de línea */
+#experiencia-final .exp-titulo,
+#experiencia-final .exp-sub,
+#experiencia-final .exp-texto {
+  margin: 0;
+  font-size: 0;
+  color: transparent;
+  text-align: left;
+}
+
+#experiencia-final .exp-titulo,
+#experiencia-final .exp-sub {
+  position: absolute;
+  left: 6%;
+  width: 88%;
+  white-space: nowrap;
+}
+
+#experiencia-final .exp-titulo {
+  top: -175%;
+  font-family: 'Michroma', sans-serif;
+  font-weight: 400;
+  line-height: 1.25;
+  text-shadow: 0 0.35cqh 1cqh rgba(0, 0, 0, 0.9);
+}
+
+#experiencia-final .exp-sub {
+  top: -94%;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.3;
+  text-shadow: 0 0.3cqh 0.8cqh rgba(0, 0, 0, 0.95);
+}
+
+#experiencia-final .exp-texto {
+  font-family: 'Michroma', sans-serif;
+  font-weight: 400;
+  text-shadow: 0 0.2cqh 0.6cqh rgba(0, 0, 0, 0.6);
+}
+
+#experiencia-final .exp-titulo::after {
+  content: "Te lleg\00F3  un mensaje de voz.\A Escuchalo y eleg\00ED :";
+  display: block;
+  white-space: pre;
+  color: #f7b13d;
+  font-size: 5.2cqh;
+}
+
+#experiencia-final .exp-sub::after {
+  content: "\00BF REAL o IA? \00BF Es una voz aut\00E9ntica\A o fue generada artificialmente?";
+  display: block;
+  white-space: pre;
+  color: #ebdcb8;
+  font-size: 4.25cqh;
+}
+
+#experiencia-final .exp-texto::after {
+  content: "Eleg\00ED  si la llamada\A es REAL o IA\A marcando los n\00FAmeros\A que aparecen\A en el tel\00E9 fono.";
+  display: block;
+  white-space: pre;
+  color: #ebdcb8;
+  font-size: 3.55cqh;
+  line-height: 1.42;
+}
+
+#experiencia-final .exp-linea-punteada,
+#experiencia-final .exp-texto .texto-oro,
+#experiencia-final .badge-numero-txt { display: none; }
+
+/* Personaje centrado arriba del botón Avanzar */
+.tipito-consigna {
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  transform: translateX(-50%);
+  width: 11cqw;
+  max-width: 150px;
+  height: auto;
+  margin-bottom: 1cqh;
+  filter: drop-shadow(0 1.2cqh 2cqh rgba(0, 0, 0, 0.75));
+  pointer-events: none;
+}
+
+@media (max-width: 700px) {
+  #experiencia-final .panel-experiencia-final { right: 8%; }
+  #experiencia-final .exp-titulo { top: -155%; }
+  #experiencia-final .exp-sub { top: -82%; }
+  #experiencia-final .exp-titulo::after { font-size: 4.2cqh; }
+  #experiencia-final .exp-sub::after { font-size: 3.4cqh; }
+}
 /* =========================================================
    ESTILOS PARA LAS PANTALLAS DE FEEDBACK (EXPERIENCIA FINAL)
    ========================================================= */
