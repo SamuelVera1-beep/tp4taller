@@ -1992,7 +1992,7 @@ body {
   transform: translateX(-50%);
   width: 72%;
   background: rgba(162, 153, 118, 0.95);
-  border: 0.25cqh solid #f2b33d;
+  border: 0.25cqh solid #1a120c;
   border-radius: 2.5cqh;
   box-shadow: 0 1.5cqh 4cqh rgba(0, 0, 0, 0.8);
   padding: 2.2cqh 3cqw;
@@ -2072,6 +2072,8 @@ body {
 }
 
 .btn-avanzar-exp-izq:hover { transform: scale(1.05); }
+
+/* En la consigna, Avanzar va a la derecha (Volver queda a la izquierda) */
 #btn-avanzar-exp {
   left: auto;
   right: 3.5cqw;
@@ -2326,8 +2328,9 @@ body {
   border-radius: 999px;
 }
 
-#modal-detalle-libreta.activo .barra-progreso-fill {
-  animation: llenarBarraTotal 21s linear forwards;
+#modal-detalle-libreta.activo .barra-progreso-fill,
+#modal-robo.activo .barra-progreso-fill {
+  animation: llenarBarraTotal 7s linear forwards; /* se completa una vez por pantalla */
 }
 
 @keyframes llenarBarraTotal {
@@ -2485,7 +2488,7 @@ body {
    ========================================================= */
 
 #modal-infodedelito.activo .barra-progreso-fill {
-  animation: llenarBarraTotal 21s linear forwards; /* 7 segundos por cada estado */
+  animation: llenarBarraTotal 7s linear forwards; /* se completa una vez por pantalla */
 }
 
 @keyframes llenarBarraTotal {
@@ -2543,7 +2546,7 @@ body {
   position: absolute;
   inset: 6cqh 6cqw 21cqh;
   background: rgba(162, 153, 118, 0.82);
-  border: 0.5cqh solid #f2b33d;
+  border: 0.5cqh solid #1a120c;
   border-radius: 2.5cqh;
   box-shadow: 0 1.5cqh 4cqh rgba(0, 0, 0, 0.8);
   padding: 4cqh 5cqw;
