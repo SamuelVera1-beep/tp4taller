@@ -2055,7 +2055,7 @@ body {
 
 .btn-avanzar-exp-izq {
   position: absolute;
-  right: 3.5cqw;
+  left: 3.5cqw;
   bottom: 3.5cqh;
   background: none;
   border: none;
@@ -2072,6 +2072,10 @@ body {
 }
 
 .btn-avanzar-exp-izq:hover { transform: scale(1.05); }
+#btn-avanzar-exp {
+  left: auto;
+  right: 3.5cqw;
+}
 
 .audio-num-titulo {
   position: absolute;
