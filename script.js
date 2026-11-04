@@ -87,6 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let timerPaso3 = null;
   let timerPaso2_N2 = null;
   let timerPaso3_N2 = null;
+  let timerTimbre = null;
   let karaokeInterval = null;
   let karaokeIntervalN2 = null;
 
@@ -454,6 +455,22 @@ document.addEventListener('DOMContentLoaded', () => {
     void relleno.offsetWidth;
     relleno.style.animation = '';
   }
+
+  // Timbre de "Llamada entrante": arranca 1 s después de que aparece la pantalla
+  function programarTimbre(modal) {
+    detenerTimbre();
+    timerTimbre = setTimeout(() => {
+      if (modal.classList.contains('visible')) {
+        timbre.play().catch(() => {});
+      }
+    }, 1000);
+  }
+
+  function detenerTimbre() {
+    if (timerTimbre) clearTimeout(timerTimbre);
+    timbre.pause();
+    timbre.currentTime = 0;
+  }
   
   function actualizarSubtitulos(lineas, tiempoActual) {
     let lineaActiva = null;
@@ -580,15 +597,15 @@ document.addEventListener('DOMContentLoaded', () => {
           modalDetalleLibreta.classList.add('paso-2');
           reiniciarBarra(modalDetalleLibreta);
         }
-      }, 7000);
+      }, 9000);
 
       timerPaso3 = setTimeout(() => {
         if (modalDetalleLibreta.classList.contains('visible')) {
           modalDetalleLibreta.classList.remove('paso-2');
           modalDetalleLibreta.classList.add('paso-3', 'cambiado');
-          reiniciarBarra(modalDetalleLibreta);
+          programarTimbre(modalDetalleLibreta);
         }
-      }, 14000);
+      }, 18000);
     });
   }
 
@@ -596,8 +613,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Núcleo 1 - Opción 4
     if (modalDetalleLibreta && modalDetalleLibreta.classList.contains('visible') && modalDetalleLibreta.classList.contains('paso-3')) {
       if (e.key === '0') {
+        detenerTimbre();
         activarLlamada1();
       } else if (e.key === '9') {
+        detenerTimbre();
         limpiarTimersSecuencia();
         modalDetalleLibreta.classList.remove('paso-2', 'paso-3', 'cambiado', 'activo');
         ocultar(modalDetalleLibreta);
@@ -609,8 +628,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Núcleo 2 - Opción 6
     if (modalInfoDelito && modalInfoDelito.classList.contains('visible') && modalInfoDelito.classList.contains('paso-3')) {
       if (e.key === '0') {
+        detenerTimbre();
         activarLlamada2();
       } else if (e.key === '9') {
+        detenerTimbre();
         limpiarTimersNucleo2();
         modalInfoDelito.classList.remove('paso-2', 'paso-3', 'cambiado', 'activo');
         ocultar(modalInfoDelito);
@@ -622,6 +643,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (btnCerrarLibreta && modalDetalleLibreta) {
     btnCerrarLibreta.addEventListener('click', () => {
+      detenerTimbre();
       limpiarTimersSecuencia();
       modalDetalleLibreta.classList.remove('paso-2', 'paso-3', 'cambiado', 'activo');
       ocultar(modalDetalleLibreta);
@@ -644,6 +666,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ocultar(modalLlamadaActiva4);
       mostrar(modalDetalleLibreta);
       pantalla = 'modal-4';
+      programarTimbre(modalDetalleLibreta);
     });
   }
 
@@ -741,20 +764,21 @@ document.addEventListener('DOMContentLoaded', () => {
           modalInfoDelito.classList.add('paso-2');
           reiniciarBarra(modalInfoDelito);
         }
-      }, 7000);
+      }, 9000);
 
       timerPaso3_N2 = setTimeout(() => {
         if (modalInfoDelito.classList.contains('visible')) {
           modalInfoDelito.classList.remove('paso-2');
           modalInfoDelito.classList.add('paso-3', 'cambiado');
-          reiniciarBarra(modalInfoDelito);
+          programarTimbre(modalInfoDelito);
         }
-      }, 14000);
+      }, 18000);
     });
   }
 
   if (btnCerrarInfoDelito && modalInfoDelito) {
     btnCerrarInfoDelito.addEventListener('click', () => {
+      detenerTimbre();
       limpiarTimersNucleo2();
       modalInfoDelito.classList.remove('paso-2', 'paso-3', 'cambiado', 'activo');
       ocultar(modalInfoDelito);
@@ -777,6 +801,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ocultar(modalLlamadaActivaInfo);
       mostrar(modalInfoDelito);
       pantalla = 'modal-infodedelito';
+      programarTimbre(modalInfoDelito);
     });
   }
 
@@ -823,9 +848,8 @@ document.addEventListener('DOMContentLoaded', () => {
       timerLlamada = setTimeout(() => {
         if (modalRedes.classList.contains('visible')) {
           modalRedes.classList.add('cambiado');
-          reiniciarBarra(modalRedes);
         }
-      }, 5000);
+      }, 9000);
     });
   }
 

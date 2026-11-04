@@ -2306,7 +2306,7 @@ body {
   visibility: hidden;
 }
 /* =========================================================
-   ESTILOS BARRA DE PROGRESO Y SECUENCIA DE 7 SEGUNDOS (OPCIÓN 4)
+   ESTILOS BARRA DE PROGRESO Y SECUENCIA DE 9 SEGUNDOS (OPCIÓN 4)
    ========================================================= */
 
 .barra-progreso-container {
@@ -2328,13 +2328,16 @@ body {
   border-radius: 999px;
 }
 
-#modal-detalle-libreta.activo .barra-progreso-fill {
-  animation: llenarBarraTotal 7s linear forwards; /* se completa una vez por pantalla */
+#modal-detalle-libreta.activo .barra-progreso-fill,
+#modal-redes.activo .barra-progreso-fill {
+  animation: llenarBarraTotal 9s linear forwards; /* se completa una vez por pantalla */
 }
 
-/* Identidad digital cambia de pantalla a los 5 segundos */
-#modal-redes.activo .barra-progreso-fill {
-  animation: llenarBarraTotal 5s linear forwards;
+/* La última pantalla de cada caso no lleva barra */
+#modal-detalle-libreta.paso-3 .barra-progreso-container,
+#modal-infodedelito.paso-3 .barra-progreso-container,
+#modal-redes.cambiado .barra-progreso-container {
+  display: none;
 }
 
 @keyframes llenarBarraTotal {
@@ -2492,7 +2495,7 @@ body {
    ========================================================= */
 
 #modal-infodedelito.activo .barra-progreso-fill {
-  animation: llenarBarraTotal 7s linear forwards; /* se completa una vez por pantalla */
+  animation: llenarBarraTotal 9s linear forwards; /* se completa una vez por pantalla */
 }
 
 @keyframes llenarBarraTotal {
