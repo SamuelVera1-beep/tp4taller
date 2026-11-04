@@ -242,7 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let aciertosTotales = 0;
 
   const audiosExperiencia = [
-    { id: 1, elemento: document.getElementById('audio-exp-1') || new Audio('llamada1.mpeg'), tipo: 'real' },
+    { id: 1, elemento: document.getElementById('audio-exp-1') || new Audio('audio1real.mpeg'), tipo: 'real' },
     { id: 2, elemento: document.getElementById('audio-exp-2') || new Audio('audio2ia.mp3'), tipo: 'ia' },
     { id: 3, elemento: document.getElementById('audio-exp-3') || new Audio('audio3ia.mp3'), tipo: 'ia' },
     { id: 4, elemento: document.getElementById('audio-exp-4') || new Audio('audio4real.mp3'), tipo: 'real' }
