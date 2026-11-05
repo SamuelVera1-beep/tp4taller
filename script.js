@@ -82,6 +82,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const audioSuelen = document.getElementById('audio-suelen') || new Audio('suelen.mp3');
   const audioLey = document.getElementById('audio-ley') || new Audio('ley.mp3');
   const audioPerio = document.getElementById('audio-perio') || new Audio('perio.mp3');
+  const audioCaba = document.getElementById('audio-caba') || new Audio('CABA.mp3');
+  const audioIden = document.getElementById('audio-iden') || new Audio('iden.mp3');
+  const audioConte = document.getElementById('audio-conte') || new Audio('conte.mp3');
   
   audioLlamada1.preload = 'auto';
   audioLlamada2.preload = 'auto';
@@ -94,6 +97,9 @@ document.addEventListener('DOMContentLoaded', () => {
   audioSuelen.preload = 'auto';
   audioLey.preload = 'auto';
   audioPerio.preload = 'auto';
+  audioCaba.preload = 'auto';
+  audioIden.preload = 'auto';
+  audioConte.preload = 'auto';
 
   let pantalla = 'intro';
   let timerLlamada = null;
@@ -749,11 +755,15 @@ document.addEventListener('DOMContentLoaded', () => {
       pantalla = 'modal-6';
       ocultar(nucleo1);
       mostrar(modalDenuncias);
+      audioCaba.currentTime = 0;
+      audioCaba.play().catch(() => {});
     });
   }
 
   if (btnCerrarDenuncias && modalDenuncias) {
     btnCerrarDenuncias.addEventListener('click', () => {
+      audioCaba.pause();
+      audioCaba.currentTime = 0;
       ocultar(modalDenuncias);
       mostrar(nucleo1);
     });
@@ -912,24 +922,36 @@ document.addEventListener('DOMContentLoaded', () => {
   if (tarjetaOpcion6_N3 && modalRedes) {
     tarjetaOpcion6_N3.addEventListener('click', () => {
       pantalla = 'modal-redes';
+      audioIden.pause();
+      audioIden.currentTime = 0;
+      audioConte.pause();
+      audioConte.currentTime = 0;
       modalRedes.classList.remove('cambiado', 'activo');
       void modalRedes.offsetWidth;
       modalRedes.classList.add('activo');
       ocultar(nucleo3);
       mostrar(modalRedes);
 
-      if (timerLlamada) clearTimeout(timerLlamada);
-      timerLlamada = setTimeout(() => {
-        if (modalRedes.classList.contains('visible')) {
-          modalRedes.classList.add('cambiado');
-        }
-      }, 9000);
+      audioIden.onended = () => {
+        if (!modalRedes.classList.contains('visible')) return;
+        modalRedes.classList.add('cambiado');
+        audioConte.currentTime = 0;
+        audioConte.play().catch(() => {});
+        sincronizarBarraConAudio(modalRedes, audioConte);
+      };
+
+      audioIden.play().catch(() => {});
+      sincronizarBarraConAudio(modalRedes, audioIden);
     });
   }
 
   if (btnCerrarRedes && modalRedes) {
     btnCerrarRedes.addEventListener('click', () => {
       if (timerLlamada) clearTimeout(timerLlamada);
+      audioIden.pause();
+      audioIden.currentTime = 0;
+      audioConte.pause();
+      audioConte.currentTime = 0;
       modalRedes.classList.remove('cambiado', 'activo');
       ocultar(modalRedes);
       mostrar(nucleo3);
