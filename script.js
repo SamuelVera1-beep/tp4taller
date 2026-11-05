@@ -73,13 +73,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const audioLlamada1 = document.getElementById('audio-llamada1') || new Audio('llamada1.mpeg');
   const audioLlamada2 = document.getElementById('audio-llamada2') || new Audio('llamada2.mpeg');
+  const audioModalidad = document.getElementById('audio-modalidad') || new Audio('modalidad.mp3');
+  const audioObtiene = document.getElementById('audio-obtiene') || new Audio('obtiene.mp3');
   const audioVishing = document.getElementById('audio-vishing') || new Audio('vishing.mp3');
   const audioClonacion = document.getElementById('audio-clonacion') || new Audio('clonacion.mp3');
+  const audioInvestigacion = document.getElementById('audio-investigacion') || new Audio('inves.mp3');
+  const audioPerso = document.getElementById('audio-perso') || new Audio('perso.mp3');
+  const audioSuelen = document.getElementById('audio-suelen') || new Audio('suelen.mp3');
+  const audioLey = document.getElementById('audio-ley') || new Audio('ley.mp3');
+  const audioPerio = document.getElementById('audio-perio') || new Audio('perio.mp3');
   
   audioLlamada1.preload = 'auto';
   audioLlamada2.preload = 'auto';
+  audioModalidad.preload = 'auto';
+  audioObtiene.preload = 'auto';
   audioVishing.preload = 'auto';
   audioClonacion.preload = 'auto';
+  audioInvestigacion.preload = 'auto';
+  audioPerso.preload = 'auto';
+  audioSuelen.preload = 'auto';
+  audioLey.preload = 'auto';
+  audioPerio.preload = 'auto';
 
   let pantalla = 'intro';
   let timerLlamada = null;
@@ -448,12 +462,29 @@ document.addEventListener('DOMContentLoaded', () => {
     if (timerPaso3_N2) clearTimeout(timerPaso3_N2);
   }
 
-    function reiniciarBarra(modal) {
+    function reiniciarBarra(modal, duracionMs) {
     const relleno = modal.querySelector('.barra-progreso-fill');
     if (!relleno) return;
+    if (duracionMs) {
+      relleno.style.animationDuration = `${duracionMs / 1000}s`;
+    }
     relleno.style.animation = 'none';
     void relleno.offsetWidth;
     relleno.style.animation = '';
+  }
+
+  function sincronizarBarraConAudio(modal, audio) {
+    const actualizarDuracion = () => {
+      if (Number.isFinite(audio.duration) && audio.duration > 0) {
+        reiniciarBarra(modal, audio.duration * 1000);
+      }
+    };
+
+    if (Number.isFinite(audio.duration) && audio.duration > 0) {
+      actualizarDuracion();
+    } else {
+      audio.addEventListener('loadedmetadata', actualizarDuracion, { once: true });
+    }
   }
 
   // Timbre de "Llamada entrante": arranca 1 s después de que aparece la pantalla
@@ -470,6 +501,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (timerTimbre) clearTimeout(timerTimbre);
     timbre.pause();
     timbre.currentTime = 0;
+  }
+
+  function detenerAudiosModalidad() {
+    [audioModalidad, audioObtiene].forEach(audio => {
+      if (audio) {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+    });
   }
   
   function actualizarSubtitulos(lineas, tiempoActual) {
@@ -584,6 +624,7 @@ document.addEventListener('DOMContentLoaded', () => {
     tarjetaOpcion4_N1.addEventListener('click', () => {
       pantalla = 'modal-4';
       limpiarTimersSecuencia();
+      detenerAudiosModalidad();
       
       modalDetalleLibreta.classList.remove('paso-2', 'paso-3', 'cambiado', 'activo');
       void modalDetalleLibreta.offsetWidth;
@@ -592,20 +633,24 @@ document.addEventListener('DOMContentLoaded', () => {
       ocultar(nucleo1);
       mostrar(modalDetalleLibreta);
 
-      timerPaso2 = setTimeout(() => {
-        if (modalDetalleLibreta.classList.contains('visible')) {
-          modalDetalleLibreta.classList.add('paso-2');
-          reiniciarBarra(modalDetalleLibreta);
-        }
-      }, 9000);
+      audioModalidad.onended = () => {
+        if (!modalDetalleLibreta.classList.contains('visible')) return;
+        audioObtiene.currentTime = 0;
+        modalDetalleLibreta.classList.add('paso-2');
+        audioObtiene.play().catch(() => {});
+        sincronizarBarraConAudio(modalDetalleLibreta, audioObtiene);
+      };
 
-      timerPaso3 = setTimeout(() => {
-        if (modalDetalleLibreta.classList.contains('visible')) {
-          modalDetalleLibreta.classList.remove('paso-2');
-          modalDetalleLibreta.classList.add('paso-3', 'cambiado');
-          programarTimbre(modalDetalleLibreta);
-        }
-      }, 18000);
+      audioObtiene.onended = () => {
+        if (!modalDetalleLibreta.classList.contains('visible')) return;
+        detenerAudiosModalidad();
+        modalDetalleLibreta.classList.remove('paso-2');
+        modalDetalleLibreta.classList.add('paso-3', 'cambiado');
+        programarTimbre(modalDetalleLibreta);
+      };
+
+      audioModalidad.play().catch(() => {});
+      sincronizarBarraConAudio(modalDetalleLibreta, audioModalidad);
     });
   }
 
@@ -617,6 +662,7 @@ document.addEventListener('DOMContentLoaded', () => {
         activarLlamada1();
       } else if (e.key === '9') {
         detenerTimbre();
+        detenerAudiosModalidad();
         limpiarTimersSecuencia();
         modalDetalleLibreta.classList.remove('paso-2', 'paso-3', 'cambiado', 'activo');
         ocultar(modalDetalleLibreta);
@@ -632,6 +678,10 @@ document.addEventListener('DOMContentLoaded', () => {
         activarLlamada2();
       } else if (e.key === '9') {
         detenerTimbre();
+        audioPerso.pause();
+        audioPerso.currentTime = 0;
+        audioSuelen.pause();
+        audioSuelen.currentTime = 0;
         limpiarTimersNucleo2();
         modalInfoDelito.classList.remove('paso-2', 'paso-3', 'cambiado', 'activo');
         ocultar(modalInfoDelito);
@@ -644,6 +694,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (btnCerrarLibreta && modalDetalleLibreta) {
     btnCerrarLibreta.addEventListener('click', () => {
       detenerTimbre();
+      detenerAudiosModalidad();
       limpiarTimersSecuencia();
       modalDetalleLibreta.classList.remove('paso-2', 'paso-3', 'cambiado', 'activo');
       ocultar(modalDetalleLibreta);
@@ -736,11 +787,15 @@ document.addEventListener('DOMContentLoaded', () => {
       pantalla = 'modal-investigacion';
       ocultar(nucleo2);
       mostrar(modalInvestigacion);
+      audioInvestigacion.currentTime = 0;
+      audioInvestigacion.play().catch(() => {});
     });
   }
 
   if (btnCerrarInvestigacion && modalInvestigacion) {
     btnCerrarInvestigacion.addEventListener('click', () => {
+      audioInvestigacion.pause();
+      audioInvestigacion.currentTime = 0;
       ocultar(modalInvestigacion);
       mostrar(nucleo2);
     });
@@ -751,6 +806,10 @@ document.addEventListener('DOMContentLoaded', () => {
     tarjetaOpcion6_N2.addEventListener('click', () => {
       pantalla = 'modal-infodedelito';
       limpiarTimersNucleo2();
+      audioPerso.pause();
+      audioPerso.currentTime = 0;
+      audioSuelen.pause();
+      audioSuelen.currentTime = 0;
 
       modalInfoDelito.classList.remove('paso-2', 'paso-3', 'cambiado', 'activo');
       void modalInfoDelito.offsetWidth;
@@ -759,20 +818,23 @@ document.addEventListener('DOMContentLoaded', () => {
       ocultar(nucleo2);
       mostrar(modalInfoDelito);
 
-      timerPaso2_N2 = setTimeout(() => {
-        if (modalInfoDelito.classList.contains('visible')) {
-          modalInfoDelito.classList.add('paso-2');
-          reiniciarBarra(modalInfoDelito);
-        }
-      }, 9000);
+      audioPerso.onended = () => {
+        if (!modalInfoDelito.classList.contains('visible')) return;
+        modalInfoDelito.classList.add('paso-2');
+        audioSuelen.currentTime = 0;
+        audioSuelen.play().catch(() => {});
+        sincronizarBarraConAudio(modalInfoDelito, audioSuelen);
+      };
 
-      timerPaso3_N2 = setTimeout(() => {
-        if (modalInfoDelito.classList.contains('visible')) {
-          modalInfoDelito.classList.remove('paso-2');
-          modalInfoDelito.classList.add('paso-3', 'cambiado');
-          programarTimbre(modalInfoDelito);
-        }
-      }, 18000);
+      audioSuelen.onended = () => {
+        if (!modalInfoDelito.classList.contains('visible')) return;
+        modalInfoDelito.classList.remove('paso-2');
+        modalInfoDelito.classList.add('paso-3', 'cambiado');
+        programarTimbre(modalInfoDelito);
+      };
+
+      audioPerso.play().catch(() => {});
+      sincronizarBarraConAudio(modalInfoDelito, audioPerso);
     });
   }
 
@@ -780,6 +842,10 @@ document.addEventListener('DOMContentLoaded', () => {
     btnCerrarInfoDelito.addEventListener('click', () => {
       detenerTimbre();
       limpiarTimersNucleo2();
+      audioPerso.pause();
+      audioPerso.currentTime = 0;
+      audioSuelen.pause();
+      audioSuelen.currentTime = 0;
       modalInfoDelito.classList.remove('paso-2', 'paso-3', 'cambiado', 'activo');
       ocultar(modalInfoDelito);
       mostrar(nucleo2);
@@ -810,11 +876,15 @@ document.addEventListener('DOMContentLoaded', () => {
       pantalla = 'modal-ley';
       ocultar(nucleo3);
       mostrar(modalLey);
+      audioLey.currentTime = 0;
+      audioLey.play().catch(() => {});
     });
   }
 
   if (btnCerrarLey && modalLey) {
     btnCerrarLey.addEventListener('click', () => {
+      audioLey.pause();
+      audioLey.currentTime = 0;
       ocultar(modalLey);
       mostrar(nucleo3);
     });
@@ -825,11 +895,15 @@ document.addEventListener('DOMContentLoaded', () => {
       pantalla = 'modal-robo';
       ocultar(nucleo3);
       mostrar(modalRobo);
+      audioPerio.currentTime = 0;
+      audioPerio.play().catch(() => {});
     });
   }
 
   if (btnCerrarRobo && modalRobo) {
     btnCerrarRobo.addEventListener('click', () => {
+      audioPerio.pause();
+      audioPerio.currentTime = 0;
       ocultar(modalRobo);
       mostrar(nucleo3);
     });
