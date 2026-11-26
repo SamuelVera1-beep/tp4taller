@@ -468,8 +468,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (timerPaso3_N2) clearTimeout(timerPaso3_N2);
   }
 
-    function reiniciarBarra(modal, duracionMs) {
-    const relleno = modal.querySelector('.barra-progreso-fill');
+  function obtenerEstadoActual(modal) {
+    if (modal.classList.contains('paso-3')) return modal.querySelector('.estado-3');
+    if (modal.classList.contains('paso-2') || modal.classList.contains('cambiado')) {
+      return modal.querySelector('.estado-2');
+    }
+    return modal.querySelector('.estado-1');
+  }
+
+  function reiniciarBarra(modal, duracionMs) {
+    const estadoActual = obtenerEstadoActual(modal);
+    const relleno = estadoActual?.querySelector('.barra-progreso-fill');
     if (!relleno) return;
     if (duracionMs) {
       relleno.style.animationDuration = `${duracionMs / 1000}s`;
@@ -480,9 +489,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function sincronizarBarraConAudio(modal, audio) {
+    // La barra acompaña la lectura visual, por eso avanza más despacio que el audio.
+    const factorLentitudBarra = 1.6;
     const actualizarDuracion = () => {
       if (Number.isFinite(audio.duration) && audio.duration > 0) {
-        reiniciarBarra(modal, audio.duration * 1000);
+        reiniciarBarra(modal, audio.duration * 1000 * factorLentitudBarra);
       }
     };
 

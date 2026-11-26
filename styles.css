@@ -2420,7 +2420,7 @@ body {
   visibility: hidden;
 }
 /* =========================================================
-   ESTILOS BARRA DE PROGRESO Y SECUENCIA DE 9 SEGUNDOS (OPCIÓN 4)
+   ESTILOS BARRA DE PROGRESO Y SECUENCIAS NARRADAS
    ========================================================= */
 
 .barra-progreso-container {
@@ -2442,16 +2442,16 @@ body {
   border-radius: 999px;
 }
 
-#modal-detalle-libreta.activo .barra-progreso-fill,
-#modal-redes.activo .barra-progreso-fill {
-  animation: llenarBarraTotal 9s linear forwards; /* se completa una vez por pantalla */
+#modal-detalle-libreta.activo .estado-1 .barra-progreso-fill,
+#modal-infodedelito.activo .estado-1 .barra-progreso-fill,
+#modal-redes.activo .estado-1 .barra-progreso-fill {
+  animation: llenarBarraTotal 9s linear forwards; /* la duración real se ajusta desde script.js */
 }
 
-/* La última pantalla de cada caso no lleva barra */
-#modal-detalle-libreta.paso-3 .barra-progreso-container,
-#modal-infodedelito.paso-3 .barra-progreso-container,
-#modal-redes.cambiado .barra-progreso-container {
-  display: none;
+#modal-detalle-libreta.paso-2 .estado-2 .barra-progreso-fill,
+#modal-infodedelito.paso-2 .estado-2 .barra-progreso-fill,
+#modal-redes.cambiado .estado-2 .barra-progreso-fill {
+  animation: llenarBarraTotal 9s linear forwards;
 }
 
 @keyframes llenarBarraTotal {
@@ -2712,4 +2712,214 @@ body {
 
 .btn-avanzar-cierre .texto-avanzar {
   color: #ebdcb8;
+}
+
+/* =========================================================
+   AJUSTE GENERAL DE COMPOSICIÓN Y LEGIBILIDAD
+   ========================================================= */
+
+/* Textos principales: un ancho más contenido genera más renglones y centra la lectura. */
+.texto-modalidad-wrap,
+.texto-estafa-wrap,
+.texto-denuncias-wrap,
+.texto-clonacion-wrap,
+.texto-investigacion-wrap,
+.texto-ley-wrap,
+.texto-robo-wrap,
+.texto-redes-wrap {
+  left: 50%;
+  right: auto;
+  width: 58%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.texto-infodedelito-wrap,
+.texto-infodedelito-wrap-2 {
+  left: 50%;
+  width: 48%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.modalidad-parrafo,
+.estafa-parrafo,
+.denuncias-parrafo,
+.clonacion-parrafo,
+.investigacion-parrafo,
+.ley-parrafo,
+.robo-parrafo,
+.redes-parrafo,
+.infodedelito-parrafo,
+.redes-lista li {
+  font-size: 3.8cqh;
+  line-height: 1.45;
+}
+
+.texto-estafa-wrap,
+.texto-denuncias-wrap,
+.texto-clonacion-wrap,
+.texto-investigacion-wrap,
+.texto-ley-wrap,
+.texto-robo-wrap {
+  top: 8%;
+}
+
+/* Imágenes agrupadas y centradas, con un tamaño apenas mayor y sin ocupar todo el ancho. */
+.imagenes-modalidad-wrap,
+.imagenes-estafa-wrap,
+.imagenes-denuncias-wrap,
+.imagenes-clonacion-wrap,
+.imagenes-investigacion-wrap,
+.imagenes-infodedelito-wrap,
+.imagenes-redes-wrap,
+.imagenes-ley-wrap,
+.imagenes-robo-wrap {
+  left: 50%;
+  right: auto;
+  width: 72%;
+  transform: translateX(-50%);
+  justify-content: center;
+}
+
+.imagenes-modalidad-wrap .img-mini-wrap,
+.imagenes-estafa-wrap .img-mini-wrap,
+.imagenes-denuncias-wrap .img-mini-wrap,
+.imagenes-clonacion-wrap .img-mini-wrap,
+.imagenes-investigacion-wrap .img-mini-wrap,
+.imagenes-infodedelito-wrap .img-mini-wrap,
+.imagenes-redes-wrap .img-mini-wrap,
+.imagenes-ley-wrap .img-mini-wrap,
+.imagenes-robo-wrap .img-mini-wrap {
+  width: 30cqw;
+  height: 28cqh;
+}
+
+.imagenes-clonacion-wrap .img-mini-wrap,
+.imagenes-investigacion-wrap .img-mini-wrap,
+.imagenes-ley-wrap .img-ley-wrap {
+  width: 38cqw;
+  height: 31cqh;
+}
+
+/* Botones de texto: apenas más grandes, centrados y con saltos naturales. */
+.opcion-texto,
+.texto-tarjeta,
+.buzon-texto,
+.texto-avanzar,
+.volver-texto-1,
+.volver-texto-2,
+.volver-texto-3 {
+  font-size: 2cqh;
+  line-height: 1.25;
+}
+
+.opcion-texto,
+.texto-tarjeta {
+  white-space: normal;
+  max-width: 24cqw;
+  text-align: center;
+}
+
+.opcion-tarjeta,
+.tarjeta-opcion {
+  justify-content: center;
+  padding: 0.8cqh 1.8cqw 0.8cqh 0.8cqw;
+}
+
+.menu-sub,
+.instr-texto,
+.nucleo-sub-1,
+.nucleo-sub-2,
+.nucleo-sub-3,
+.instr-inferior-1,
+.instr-inferior-2,
+.instr-inferior-3 {
+  white-space: normal;
+  max-width: 72%;
+  line-height: 1.4;
+}
+
+.menu-sub,
+.instr-texto {
+  left: 50%;
+  width: 72%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.instr-titulo,
+.nucleo-titulo-1,
+.nucleo-titulo-2,
+.nucleo-titulo-3 {
+  font-size: 4.8cqh;
+}
+
+.menu-titulo {
+  font-size: 5.3cqh;
+}
+
+.panel-feedback-wrap,
+.panel-cierre {
+  width: 66%;
+}
+
+.feedback-parrafo,
+.cierre-parrafo {
+  font-size: 4cqh;
+  line-height: 1.45;
+}
+
+/* Composición de las pantallas informativas, siguiendo la referencia enviada. */
+#modal-detalle-libreta .texto-modalidad-wrap,
+#modal-infodedelito .texto-infodedelito-wrap,
+#modal-infodedelito .texto-infodedelito-wrap-2,
+#modal-redes .texto-redes-wrap {
+  left: 38%;
+  top: 8%;
+  width: 57%;
+  transform: none;
+  text-align: left;
+}
+
+#modal-detalle-libreta .imagenes-modalidad-wrap,
+#modal-infodedelito .imagenes-infodedelito-wrap,
+#modal-redes .imagenes-redes-wrap {
+  left: 4%;
+  right: auto;
+  bottom: 15%;
+  width: 84%;
+  transform: none;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+#modal-detalle-libreta .imagenes-modalidad-wrap .img-mini-wrap,
+#modal-redes .imagenes-redes-wrap .img-mini-wrap {
+  width: 31cqw;
+  height: 28cqh;
+}
+
+#modal-detalle-libreta .imagenes-modalidad-wrap .img-mini-wrap:first-child,
+#modal-redes .imagenes-redes-wrap .img-mini-wrap:first-child {
+  width: 35cqw;
+  height: 32cqh;
+}
+
+#modal-infodedelito .imagenes-infodedelito-wrap {
+  left: 8%;
+  width: 72%;
+}
+
+#modal-infodedelito .imagenes-infodedelito-wrap .img-mini-wrap,
+#modal-infodedelito .imagenes-infodedelito-wrap .tarjeta-dialogo-abuela {
+  transform: translateY(-1.5cqh);
+}
+
+#modal-detalle-libreta .modalidad-parrafo,
+#modal-infodedelito .infodedelito-parrafo,
+#modal-redes .redes-parrafo,
+#modal-redes .redes-lista li {
+  font-size: 3.9cqh;
+  line-height: 1.42;
 }
