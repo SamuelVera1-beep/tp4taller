@@ -1589,6 +1589,150 @@ body {
   letter-spacing: 0.05em;
   text-shadow: 0 0.2cqh 0.6cqh rgba(0, 0, 0, 0.8);
 }
+
+/* =========================================================
+   AJUSTE DE COMPOSICIÓN: CONTENIDO MÁS CENTRADO Y LEGIBLE
+   ========================================================= */
+
+/* Las pantallas mantienen el fondo, pero concentran el contenido en una
+   composición central para evitar cortes y espacios vacíos. */
+.texto-modalidad-wrap,
+.texto-estafa-wrap,
+.texto-denuncias-wrap,
+.texto-clonacion-wrap,
+.texto-investigacion-wrap,
+.texto-infodedelito-wrap,
+.texto-infodedelito-wrap-2 {
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(76%, 78cqw);
+  padding: 1.5cqh 2.2cqw;
+  border-radius: 2cqh;
+  background: linear-gradient(135deg, rgba(28, 17, 12, 0.82), rgba(28, 17, 12, 0.58));
+  box-shadow: 0 1cqh 3cqh rgba(0, 0, 0, 0.42);
+}
+
+.texto-modalidad-wrap {
+  top: 8%;
+  width: min(72%, 75cqw);
+}
+
+.texto-estafa-wrap,
+.texto-denuncias-wrap,
+.texto-clonacion-wrap,
+.texto-investigacion-wrap {
+  top: 8%;
+}
+
+.texto-infodedelito-wrap {
+  top: 8%;
+}
+
+.texto-infodedelito-wrap-2 {
+  top: 25%;
+}
+
+.imagenes-modalidad-wrap,
+.imagenes-estafa-wrap,
+.imagenes-denuncias-wrap,
+.imagenes-clonacion-wrap,
+.imagenes-investigacion-wrap,
+.imagenes-infodedelito-wrap {
+  left: 50%;
+  right: auto;
+  bottom: 7%;
+  transform: translateX(-50%);
+  justify-content: center;
+  align-items: center;
+  gap: 2cqw;
+  width: min(82%, 86cqw);
+}
+
+.img-mini-wrap,
+.espacio-reservado {
+  width: 24cqw;
+  height: 25cqh;
+  border: 0.35cqh solid #f2b33d;
+  border-radius: 1.8cqh;
+  background: #21140e;
+  box-shadow: 0 1cqh 2.5cqh rgba(0, 0, 0, 0.86), 0 0 0.8cqh rgba(242, 179, 61, 0.3);
+}
+
+.img-mini-wrap::after,
+.espacio-reservado::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.img-mini-wrap {
+  position: relative;
+}
+
+.img-mini {
+  object-fit: contain;
+  padding: 0.7cqw;
+  filter: drop-shadow(0 0.7cqh 1cqh rgba(0, 0, 0, 0.7));
+}
+
+.imagenes-clonacion-wrap .img-mini-wrap,
+.imagenes-investigacion-wrap .img-mini-wrap {
+  width: 24cqw;
+  height: 25cqh;
+}
+
+.imagenes-infodedelito-wrap {
+  bottom: 10%;
+}
+
+.tarjeta-dialogo-abuela {
+  border: 0.3cqh solid #f2b33d;
+  box-shadow: 0 1cqh 2.5cqh rgba(0, 0, 0, 0.8), 0 0 1cqh rgba(242, 179, 61, 0.35);
+}
+
+/* En las pantallas de selección, las tarjetas forman una banda central más
+   equilibrada y no dejan el centro vacío. */
+.canvas-menu-interactivo .opcion-1 { left: 15%; top: 61%; }
+.canvas-menu-interactivo .opcion-2 { left: 39%; top: 61%; }
+.canvas-menu-interactivo .opcion-3 { left: 63%; top: 61%; }
+
+.canvas-menu-interactivo .opcion-experiencia-final {
+  left: 50%;
+  right: auto;
+  bottom: 7%;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 700px), (max-height: 500px) {
+  .texto-modalidad-wrap,
+  .texto-estafa-wrap,
+  .texto-denuncias-wrap,
+  .texto-clonacion-wrap,
+  .texto-investigacion-wrap,
+  .texto-infodedelito-wrap,
+  .texto-infodedelito-wrap-2 {
+    width: 88%;
+    padding-inline: 3cqw;
+  }
+
+  .imagenes-modalidad-wrap,
+  .imagenes-estafa-wrap,
+  .imagenes-denuncias-wrap,
+  .imagenes-clonacion-wrap,
+  .imagenes-investigacion-wrap,
+  .imagenes-infodedelito-wrap {
+    width: 92%;
+  }
+
+  .img-mini-wrap,
+  .espacio-reservado,
+  .imagenes-clonacion-wrap .img-mini-wrap,
+  .imagenes-investigacion-wrap .img-mini-wrap {
+    width: 29cqw;
+    height: 22cqh;
+  }
+}
 /* =========================================================
    ESTILOS PARA LA PANTALLA DE LEY DE PROTECCIÓN (NÚCLEO 3 - OPCIÓN 4)
    ========================================================= */
@@ -2922,4 +3066,315 @@ body {
 #modal-redes .redes-lista li {
   font-size: 3.9cqh;
   line-height: 1.42;
+}
+
+/* Ajuste final de composición: se coloca después de las reglas heredadas
+   para que el contenido quede centrado en todas las pantallas. */
+.texto-modalidad-wrap,
+.texto-estafa-wrap,
+.texto-denuncias-wrap,
+.texto-clonacion-wrap,
+.texto-investigacion-wrap,
+.texto-infodedelito-wrap,
+.texto-infodedelito-wrap-2 {
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: min(76%, 78cqw) !important;
+  padding: 1.5cqh 2.2cqw;
+  border-radius: 2cqh;
+  background: linear-gradient(135deg, rgba(28, 17, 12, 0.82), rgba(28, 17, 12, 0.58));
+  box-shadow: 0 1cqh 3cqh rgba(0, 0, 0, 0.42);
+}
+
+.texto-modalidad-wrap { top: 8% !important; }
+.texto-estafa-wrap,
+.texto-denuncias-wrap,
+.texto-clonacion-wrap,
+.texto-investigacion-wrap { top: 8% !important; }
+.texto-infodedelito-wrap { top: 8% !important; }
+.texto-infodedelito-wrap-2 { top: 25% !important; }
+
+.imagenes-modalidad-wrap,
+.imagenes-estafa-wrap,
+.imagenes-denuncias-wrap,
+.imagenes-clonacion-wrap,
+.imagenes-investigacion-wrap,
+.imagenes-infodedelito-wrap {
+  left: 50% !important;
+  right: auto !important;
+  bottom: 7% !important;
+  transform: translateX(-50%) !important;
+  justify-content: center;
+  align-items: center;
+  gap: 2cqw;
+  width: min(82%, 86cqw) !important;
+}
+
+.img-mini-wrap,
+.espacio-reservado {
+  width: 24cqw !important;
+  height: 25cqh !important;
+  border: 0.35cqh solid #f2b33d;
+  border-radius: 1.8cqh;
+  background: #21140e;
+  box-shadow: 0 1cqh 2.5cqh rgba(0, 0, 0, 0.86), 0 0 0.8cqh rgba(242, 179, 61, 0.3);
+}
+
+.img-mini-wrap { position: relative; }
+.img-mini {
+  object-fit: contain;
+  padding: 0.7cqw;
+  filter: drop-shadow(0 0.7cqh 1cqh rgba(0, 0, 0, 0.7));
+}
+
+.tarjeta-dialogo-abuela {
+  border: 0.3cqh solid #f2b33d;
+  box-shadow: 0 1cqh 2.5cqh rgba(0, 0, 0, 0.8), 0 0 1cqh rgba(242, 179, 61, 0.35);
+}
+
+.canvas-menu-interactivo .opcion-1 { left: 15%; top: 61%; }
+.canvas-menu-interactivo .opcion-2 { left: 39%; top: 61%; }
+.canvas-menu-interactivo .opcion-3 { left: 63%; top: 61%; }
+.canvas-menu-interactivo .opcion-experiencia-final {
+  left: 50%;
+  right: auto;
+  bottom: 7%;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 700px), (max-height: 500px) {
+  .texto-modalidad-wrap,
+  .texto-estafa-wrap,
+  .texto-denuncias-wrap,
+  .texto-clonacion-wrap,
+  .texto-investigacion-wrap,
+  .texto-infodedelito-wrap,
+  .texto-infodedelito-wrap-2 { width: 88% !important; }
+
+  .imagenes-modalidad-wrap,
+  .imagenes-estafa-wrap,
+  .imagenes-denuncias-wrap,
+  .imagenes-clonacion-wrap,
+  .imagenes-investigacion-wrap,
+  .imagenes-infodedelito-wrap { width: 92% !important; }
+
+  .img-mini-wrap,
+  .espacio-reservado { width: 29cqw !important; height: 22cqh !important; }
+}
+
+/* Los botones con texto conservan la distribución original del menú. */
+.canvas-menu-interactivo .opcion-1 { left: 20%; top: 66%; }
+.canvas-menu-interactivo .opcion-2 { left: 56%; top: 59%; }
+.canvas-menu-interactivo .opcion-3 { left: 66%; top: 32%; }
+.canvas-menu-interactivo .opcion-experiencia-final {
+  left: auto;
+  right: 4%;
+  bottom: 6%;
+  transform: none;
+}
+
+/* Las pantallas informativas ocupan más superficie para evitar el vacío
+   entre el texto y las imágenes. Los botones no se modifican. */
+.texto-modalidad-wrap,
+.texto-estafa-wrap,
+.texto-denuncias-wrap,
+.texto-clonacion-wrap,
+.texto-investigacion-wrap,
+.texto-ley-wrap,
+.texto-robo-wrap,
+.texto-redes-wrap,
+.texto-infodedelito-wrap,
+.texto-infodedelito-wrap-2 {
+  width: 84% !important;
+  padding: 1.8cqh 2.8cqw;
+}
+
+.modalidad-parrafo,
+.estafa-parrafo,
+.denuncias-parrafo,
+.clonacion-parrafo,
+.investigacion-parrafo,
+.ley-parrafo,
+.robo-parrafo,
+.redes-parrafo,
+.infodedelito-parrafo,
+.redes-lista li {
+  font-size: 4.25cqh;
+  line-height: 1.34;
+}
+
+.imagenes-modalidad-wrap,
+.imagenes-estafa-wrap,
+.imagenes-denuncias-wrap,
+.imagenes-clonacion-wrap,
+.imagenes-investigacion-wrap,
+.imagenes-infodedelito-wrap,
+.imagenes-redes-wrap,
+.imagenes-ley-wrap,
+.imagenes-robo-wrap {
+  bottom: 5% !important;
+  width: 90% !important;
+  gap: 2.5cqw;
+}
+
+.imagenes-modalidad-wrap .img-mini-wrap,
+.imagenes-estafa-wrap .img-mini-wrap,
+.imagenes-denuncias-wrap .img-mini-wrap,
+.imagenes-clonacion-wrap .img-mini-wrap,
+.imagenes-investigacion-wrap .img-mini-wrap,
+.imagenes-infodedelito-wrap .img-mini-wrap,
+.imagenes-redes-wrap .img-mini-wrap,
+.imagenes-ley-wrap .img-mini-wrap,
+.imagenes-robo-wrap .img-mini-wrap,
+.espacio-reservado {
+  width: 33cqw !important;
+  height: 32cqh !important;
+}
+
+.imagenes-clonacion-wrap .img-mini-wrap,
+.imagenes-investigacion-wrap .img-mini-wrap,
+.imagenes-ley-wrap .img-ley-wrap {
+  width: 40cqw !important;
+  height: 34cqh !important;
+}
+
+/* Modalidades de engaño sigue la misma composición editorial que las demás
+   pantallas: texto lateral e imágenes grandes agrupadas abajo. */
+.texto-modalidad-wrap {
+  left: 7% !important;
+  top: 9% !important;
+  transform: none !important;
+  width: 58% !important;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  text-align: left;
+}
+
+.imagenes-modalidad-wrap {
+  left: auto !important;
+  right: 7% !important;
+  bottom: 7% !important;
+  transform: none !important;
+  width: 52% !important;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+/* Sin marcos ni contenedores visibles en textos o imágenes. */
+.texto-modalidad-wrap,
+.texto-estafa-wrap,
+.texto-denuncias-wrap,
+.texto-clonacion-wrap,
+.texto-investigacion-wrap,
+.texto-ley-wrap,
+.texto-robo-wrap,
+.texto-redes-wrap,
+.texto-infodedelito-wrap,
+.texto-infodedelito-wrap-2,
+.panel-llamada-entrante,
+.tarjeta-dialogo-abuela,
+.img-mini-wrap,
+.espacio-reservado {
+  border: none !important;
+  background: transparent;
+  box-shadow: none;
+}
+
+.img-mini-wrap,
+.espacio-reservado {
+  border-radius: 0;
+}
+
+.img-mini {
+  padding: 0;
+  filter: drop-shadow(0 0.8cqh 1.1cqh rgba(0, 0, 0, 0.55));
+}
+
+/* Composición tipo referencia: texto grande en bloques laterales y las
+   imágenes como elementos protagonistas en la parte baja. */
+.texto-estafa-wrap,
+.texto-denuncias-wrap,
+.texto-clonacion-wrap,
+.texto-investigacion-wrap,
+.texto-ley-wrap,
+.texto-robo-wrap {
+  left: 7% !important;
+  transform: none !important;
+  width: 58% !important;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  text-align: left;
+}
+
+.texto-clonacion-wrap {
+  left: 16% !important;
+  top: 11% !important;
+  width: 60% !important;
+}
+
+.texto-redes-wrap,
+.texto-infodedelito-wrap,
+.texto-infodedelito-wrap-2 {
+  left: 4% !important;
+  transform: none !important;
+  width: 58% !important;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  text-align: left;
+}
+
+.texto-redes-wrap { top: 11% !important; }
+.texto-infodedelito-wrap { top: 9% !important; }
+.texto-infodedelito-wrap-2 { top: 24% !important; }
+
+.imagenes-redes-wrap {
+  left: auto !important;
+  right: 7% !important;
+  transform: none !important;
+  width: 43% !important;
+  bottom: 7% !important;
+}
+
+.imagenes-infodedelito-wrap {
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 90% !important;
+  bottom: 8% !important;
+}
+
+.imagenes-estafa-wrap,
+.imagenes-denuncias-wrap,
+.imagenes-robo-wrap {
+  width: 86% !important;
+  bottom: 7% !important;
+}
+
+.imagenes-clonacion-wrap,
+.imagenes-investigacion-wrap,
+.imagenes-ley-wrap {
+  left: auto !important;
+  right: 10% !important;
+  transform: none !important;
+  width: 42% !important;
+  bottom: 8% !important;
+}
+
+.imagenes-redes-wrap .img-mini-wrap,
+.imagenes-infodedelito-wrap .img-mini-wrap,
+.imagenes-estafa-wrap .img-mini-wrap,
+.imagenes-denuncias-wrap .img-mini-wrap,
+.imagenes-robo-wrap .img-mini-wrap,
+.espacio-reservado {
+  width: 38cqw !important;
+  height: 31cqh !important;
+}
+
+.imagenes-clonacion-wrap .img-mini-wrap,
+.imagenes-investigacion-wrap .img-mini-wrap,
+.imagenes-ley-wrap .img-ley-wrap {
+  width: 40cqw !important;
+  height: 34cqh !important;
 }
